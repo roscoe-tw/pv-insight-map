@@ -56,7 +56,7 @@ GitHub Pages: https://roscoe-tw.github.io/pv-insight-map/
 :CUSTOM_ID: license
 :END:
 
-本專案之程式碼部分採用 [[file:LICENSE.org][MIT License]] 授權。
+本專案之程式碼部分採用 [[file+emacs:LICENSE.org][MIT License]] 授權。
 
 ** ⚠️ 工程免責聲明 (Professional Disclaimer)
 本專案內容僅供技術交流參考，*不構成任何正式的工程設計建議、簽證或採購依據*。
@@ -70,4 +70,4 @@ GitHub Pages: https://roscoe-tw.github.io/pv-insight-map/
 若有關於壓力容器分析、ASME 認證諮詢或委託設計需求，歡迎聯繫：
 - *工作室*：各申機械設計工作室
 - *地點*：台灣，新竹 (Hsinchu, Taiwan)
-- *網站*：[[https://your-domain.com][各申機械設計工作室 官方網站]]
+- *網站*：[[https://sites.google.com/view/each-application/][各申機械設計工作室 官方網站]]
