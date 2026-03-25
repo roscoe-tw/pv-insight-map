@@ -17,38 +17,39 @@
 :CUSTOM_ID: features
 :END:
 
-- *規範演進追蹤* :: 針對 ASME 2023 至 2025 版本之變更進行深度解析。
+# - *規範演進追蹤* :: 針對 ASME 2023 至 2025 版本之變更進行深度解析。
 - *適任性導航* :: 根據 Mandatory Appendix 47 建立設計人員資格證明路徑。
 - *風險定價邏輯* :: 提供工程顧問服務的分級 (Level 1-3) 與風險評估框架。
-- *自動化發佈* :: 透過 Emacs Org-mode 與 CI/CD 流程自動生成靜態文件。
+# - *自動化發佈* :: 透過 Emacs Org-mode 與 CI/CD 流程自動生成靜態文件。
 
-* 開發環境與建置 (Development & Build)
+GitHub Pages: https://roscoe-tw.github.io/pv-insight-map/
+* COMMENT 開發環境與建置 (Development & Build)
 :PROPERTIES:
 :CUSTOM_ID: development
 :END:
 
-本專案採用 **GNU Guix** 進行環境管理，確保所有技術文件與腳本的編譯具備完全的可重複性 (Reproducibility)。
+# 本專案採用 **GNU Guix** 進行環境管理，確保所有技術文件與腳本的編譯具備完全的可重複性 (Reproducibility)。
 
-** 1. 進入開發環境
-#+BEGIN_SRC bash
-guix shell -m manifest.scm
-#+END_SRC
+# ** 1. 進入開發環境
+# #+BEGIN_SRC bash
+# guix shell -m manifest.scm
+# #+END_SRC
 
-** 2. 手動編譯文件
-在 Emacs 中執行 `M-x org-publish-all`，或透過命令行批次處理：
-#+BEGIN_SRC bash
-emacs --batch -l publish.el -f org-publish-all
-#+END_SRC
+# ** 2. 手動編譯文件
+# 在 Emacs 中執行 `M-x org-publish-all`，或透過命令行批次處理：
+# #+BEGIN_SRC bash
+# emacs --batch -l publish.el -f org-publish-all
+# #+END_SRC
 
-* 專案結構 (Structure)
-:PROPERTIES:
-:CUSTOM_ID: structure
-:END:
+# * 專案結構 (Structure)
+# :PROPERTIES:
+# :CUSTOM_ID: structure
+# :END:
 
-- =src/= :: 原始 =.org= 技術文件。
-- =public/= :: 自動產生的靜態網站內容 (HTML/CSS)。
-- =scripts/= :: 用於數據處理或自動化導出的 Common Lisp (SBCL) 腳本。
-- =LICENSE.org= :: 本專案的授權協議與法律免責聲明。
+# - =src/= :: 原始 =.org= 技術文件。
+# - =public/= :: 自動產生的靜態網站內容 (HTML/CSS)。
+# - =scripts/= :: 用於數據處理或自動化導出的 Common Lisp (SBCL) 腳本。
+# - =LICENSE.org= :: 本專案的授權協議與法律免責聲明。
 
 * 授權與免責聲明 (License & Disclaimer)
 :PROPERTIES:
