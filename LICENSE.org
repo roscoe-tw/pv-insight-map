@@ -1,0 +1,32 @@
+#+TITLE: Project License
+#+OPTIONS: toc:nil num:nil
+#+EXPORT_FILE_NAME: LICENSE
+
+MIT License
+
+Copyright (c) [2026] [Each Application Mechanical Design Studio]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+* Disclaimer (工程免責補充)
+:PROPERTIES:
+:CUSTOM_ID: disclaimer
+:END:
+
+雖然本專案代碼採用 MIT 授權，但涉及壓力容器 (Pressure Vessel) 之設計參數、ASME 規範解析及計算邏輯，僅供技術交流與學術研究參考。使用者應自行承擔依據本專案內容進行工程實作之所有風險。作者不保證內容完全符合最新版 BPVC 規範。
