@@ -68,6 +68,6 @@ GitHub Pages: https://roscoe-tw.github.io/pv-insight-map/
 :END:
 
 若有關於壓力容器分析、ASME 認證諮詢或委託設計需求，歡迎聯繫：
-- *工作室*：各申機械設計工作室
-- *地點*：台灣，新竹 (Hsinchu, Taiwan)
-- *網站*：[[https://sites.google.com/view/each-application/][各申機械設計工作室 官方網站]]
+- *工作室* ：各申機械設計工作室
+- *地點* ：台灣，新竹 (Hsinchu, Taiwan)
+- *網站* ：[[https://sites.google.com/view/each-application/][各申機械設計工作室 官方網站]]
