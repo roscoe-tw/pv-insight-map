@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>厚度設計判斷（Thickness Design）</title>
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/code-copy.css"/>
+<link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/code-copy.js"></script>
+<style> #content{max-width:1200px;}</style>
+<style> p{max-width:600px;}</style>
+<style> li{max-width:600px;}</style
+</head>
+<body>
+<div id="content" class="content">
+<header>
+<h1 class="title">厚度設計判斷（Thickness Design）</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org60d4ff4">你要解的是哪一種壓力？</a>
+<ul>
+<li><a href="#org474e55f">內壓（Internal Pressure）</a></li>
+<li><a href="#orgff67a07">外壓（External Pressure）</a></li>
+<li><a href="#org01a1da5">同時存在</a></li>
+</ul>
+</li>
+<li><a href="#orgcad7812">常見錯誤</a></li>
+<li><a href="#orgb0345a0">工程判斷重點</a></li>
+<li><a href="#org563f0aa">延伸</a></li>
+</ul>
+</div>
+</nav>
+<div id="outline-container-org60d4ff4" class="outline-2">
+<h2 id="org60d4ff4">你要解的是哪一種壓力？</h2>
+<div class="outline-text-2" id="text-org60d4ff4">
+</div>
+<div id="outline-container-org474e55f" class="outline-3">
+<h3 id="org474e55f">內壓（Internal Pressure）</h3>
+<div class="outline-text-3" id="text-org474e55f">
+<p>
+<a href="internal-pressure.html">→ UG-27 厚度設計</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgff67a07" class="outline-3">
+<h3 id="orgff67a07">外壓（External Pressure）</h3>
+<div class="outline-text-3" id="text-orgff67a07">
+<p>
+<a href="external-pressure.html">→ UG-28 穩定性設計</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org01a1da5" class="outline-3">
+<h3 id="org01a1da5">同時存在</h3>
+<div class="outline-text-3" id="text-org01a1da5">
+<p>
+→ 必須同時滿足 UG-27 與 UG-28
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcad7812" class="outline-2">
+<h2 id="orgcad7812">常見錯誤</h2>
+<div class="outline-text-2" id="text-orgcad7812">
+<ul class="org-ul">
+<li>只計算內壓，忽略外壓失穩</li>
+<li>使用 UG-27，但未正確選擇 joint efficiency</li>
+<li>忽略 corrosion allowance</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb0345a0" class="outline-2">
+<h2 id="orgb0345a0">工程判斷重點</h2>
+<div class="outline-text-2" id="text-orgb0345a0">
+<p>
+厚度設計不是公式問題，而是：
+</p>
+
+<ul class="org-ul">
+<li>壓力類型判斷</li>
+<li>材料 allowable stress 選用</li>
+<li>製造方式影響（E 值）</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org563f0aa" class="outline-2">
+<h2 id="org563f0aa">延伸</h2>
+<div class="outline-text-2" id="text-org563f0aa">
+<ul class="org-ul">
+<li><a href="../materials.html">材料與應力值（Section II-D）</a></li>
+<li><a href="../welding/joint-efficiency.html">接頭效率來源（UW-12）</a></li>
+</ul>
+
+
+
+<div class="ea-footer" style="clear: both; margin-top: 40px; padding: 20px 10px; border-top: 2px solid #FBC02D;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px;">
+    <div style="flex: 1; min-width: 250px;">
+      <a href="../index.html" style="text-decoration: none; font-weight: bold; color: #D32F2F; border: 1px solid #D32F2F; padding: 5px 10px; border-radius: 4px;">← 返回 PV Insight Map 總導航</a>
+    </div>
+    <div style="flex: 1; text-align: right; min-width: 250px; font-size: 0.9em; color: #666;">
+      <strong>各申機械設計工作室 (Each Application Studio)</strong><br>
+      專業壓力容器設計 · 風險評估 · 法規諮詢
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
