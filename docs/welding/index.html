@@ -3,8 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>碟形端板設計 | Torispherical Head Design</title>
-<meta name="description" content="碟形端板設計指南，強調 ASME 與 JIS 規範選擇、焊接效率判定，並提醒工程師應避免規範混用及計算錯誤導致的設計與法律風險。" />
+<title>接頭效率與焊接設計（UW-12）</title>
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
   #content { max-width: 60em; margin: auto; }
@@ -201,358 +200,156 @@
 	  <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
 	  <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 	  <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/code-copy.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
 <header>
-<h1 class="title">碟形端板設計 | Torispherical Head Design</h1>
+<h1 class="title">接頭效率與焊接設計（UW-12）</h1>
 </header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org893c36f">你現在遇到哪個問題？</a></li>
-<li><a href="#org3f389e7">設計輸入條件（Design Input）</a></li>
-<li><a href="#orga3b4538">厚度計算（Thickness Calculation）</a>
+<li><a href="#org97aec3e">節點說明</a></li>
+<li><a href="#orge3a477a">前置條件 (Precondition)</a></li>
+<li><a href="#orga3f5e26">決策節點 (Decision Node)</a></li>
+<li><a href="#orgc77f662">工程判斷分支</a>
 <ul>
-<li><a href="#org89f704d">JIS B 8265（碟形端板）</a></li>
-<li><a href="#org0f60072">ASME Section VIII Div.1</a></li>
+<li><a href="#org8a15f8e">分支 1：全部焊道可檢測且間距合理</a></li>
+<li><a href="#org1b05ac3">分支 2：焊道間距不足或檢測受限</a></li>
 </ul>
 </li>
-<li><a href="#orgd57691c">⚠ 關鍵工程判斷：規範選擇</a>
-<ul>
-<li><a href="#org8f9eac6">判斷流程（Decision Tree）</a></li>
-<li><a href="#org316baa1">工程原則</a></li>
-</ul>
-</li>
-<li><a href="#orgf73ba87">⚠ 焊接效率（Joint Efficiency, E）</a>
-<ul>
-<li><a href="#org13080e0">ASME（Section VIII Div.1）</a></li>
-<li><a href="#org60eeddc">JIS（厚生勞動省告示）</a></li>
-<li><a href="#org9078f69">⚠ 常見錯誤</a></li>
-</ul>
-</li>
-<li><a href="#org432c25d">工程風險（Engineering Risk）</a>
-<ul>
-<li><a href="#orgd4a56c5">設計風險</a></li>
-<li><a href="#org94585b2">認證風險</a></li>
-<li><a href="#orgf45c8dc">法律風險</a></li>
-</ul>
-</li>
-<li><a href="#orgc08f442">程式設計觀點（Software Perspective）</a>
-<ul>
-<li><a href="#orgc73a480">建議系統架構</a></li>
-</ul>
-</li>
-<li><a href="#orgb816091">案例（Case Study）</a>
-<ul>
-<li><a href="#org15cbe98">討論重點</a></li>
-</ul>
-</li>
-<li><a href="#orgdff82df">延伸節點（Related Topics）</a></li>
+<li><a href="#org341050c">案例 (Failure Case)</a></li>
+<li><a href="#org2c03552">參考文件 (Reference)</a></li>
 </ul>
 </div>
 </nav>
-<p>
-本節為壓力容器碟形端板（Torispherical Head）設計之工程判斷節點，
-涵蓋厚度計算、規範選擇、焊接效率判定與常見風險。
-</p>
-
-<blockquote>
-<p>
-端板設計的困難，不在公式，而在「你選擇哪一個規範」。
-</p>
-</blockquote>
-<div id="outline-container-org893c36f" class="outline-2">
-<h2 id="org893c36f">你現在遇到哪個問題？</h2>
-<div class="outline-text-2" id="text-org893c36f">
+<div id="outline-container-org97aec3e" class="outline-2">
+<h2 id="org97aec3e">節點說明</h2>
+<div class="outline-text-2" id="text-org97aec3e">
 <ul class="org-ul">
-<li>不知道端板厚度怎麼算</li>
-<li>JIS / ASME 不知道怎麼選</li>
-<li>焊接效率 E 不知道用多少</li>
-<li>計算結果無法通過審查</li>
-<li>軟體與手算結果不一致</li>
+<li>參考 ASME Sec.VIII Div.1 Table UW-12</li>
+<li>用於壓力容器殼體厚度計算</li>
+<li>Joint Efficiency (\(E\)) 取決於：
+<ol class="org-ol">
+<li>焊道類型（Type 1, Type 2, …）</li>
+<li>NDT 等級（RT1, RT2, RT3, RT4）</li>
+<li>焊接品質及可檢測性</li>
+</ol></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3f389e7" class="outline-2">
-<h2 id="org3f389e7">設計輸入條件（Design Input）</h2>
-<div class="outline-text-2" id="text-org3f389e7">
+<div id="outline-container-orge3a477a" class="outline-2">
+<h2 id="orge3a477a">前置條件 (Precondition)</h2>
+<div class="outline-text-2" id="text-orge3a477a">
 <ul class="org-ul">
-<li>設計壓力：P</li>
-<li>設計溫度：T</li>
-<li>材料（Material）</li>
-<li>容許應力：S</li>
-<li>焊接效率：E</li>
-<li>腐蝕裕量：tc</li>
-<li>內徑：Di</li>
-<li>冠半徑：R</li>
-<li>折邊半徑：r</li>
+<li>板厚 t</li>
+<li>母材材質</li>
+<li>焊道類型</li>
+<li>設計壓力 P 與設計溫度 T</li>
+<li>NDT 要求（RT / UT 等級）</li>
 </ul>
-
-<div class="NOTE" id="org3da8940">
-<p>
-材料容許應力 S 必須與設計溫度對應，不能使用常溫數據。
-</p>
-
 </div>
 </div>
-</div>
-<div id="outline-container-orga3b4538" class="outline-2">
-<h2 id="orga3b4538">厚度計算（Thickness Calculation）</h2>
-<div class="outline-text-2" id="text-orga3b4538">
-</div>
-<div id="outline-container-org89f704d" class="outline-3">
-<h3 id="org89f704d">JIS B 8265（碟形端板）</h3>
-<div class="outline-text-3" id="text-org89f704d">
-<p>
-常見形式：
-</p>
-
+<div id="outline-container-orga3f5e26" class="outline-2">
+<h2 id="orga3f5e26">決策節點 (Decision Node)</h2>
+<div class="outline-text-2" id="text-orga3f5e26">
 <ul class="org-ul">
-<li>與球殼近似</li>
-<li>需考慮 crown 與 knuckle 幾何</li>
-</ul>
-
-<p>
-（此處可接 Maxima 或你既有公式系統）
-</p>
-</div>
-</div>
-<div id="outline-container-org0f60072" class="outline-3">
-<h3 id="org0f60072">ASME Section VIII Div.1</h3>
-<div class="outline-text-3" id="text-org0f60072">
+<li>問題：焊接接頭效率如何確定？</li>
+<li>說明：
 <ul class="org-ul">
-<li>UG-32 (dished heads)</li>
-</ul>
-
-<div class="NOTE" id="org9cf86bb">
-<p>
-ASME 與 JIS 公式形式不同，但設計精神相似：
-→ 壓力 / 應力 / 幾何 比例控制
-</p>
-
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-orgd57691c" class="outline-2">
-<h2 id="orgd57691c">⚠ 關鍵工程判斷：規範選擇</h2>
-<div class="outline-text-2" id="text-orgd57691c">
-<blockquote>
-<p>
-你不是在選公式，你是在選責任體系。
-</p>
-</blockquote>
-</div>
-<div id="outline-container-org8f9eac6" class="outline-3">
-<h3 id="org8f9eac6">判斷流程（Decision Tree）</h3>
-<div class="outline-text-3" id="text-org8f9eac6">
-<p>
-你使用哪個設計規範？
-</p>
-
-<ul class="org-ul">
-<li>ASME
-<ul class="org-ul">
-<li>→ 使用 ASME 公式</li>
-<li>→ 使用 ASME 焊接效率</li>
-</ul></li>
-
-<li>JIS
-<ul class="org-ul">
-<li>→ 使用 JIS 公式</li>
-<li>→ 使用 JIS 焊接效率</li>
-</ul></li>
-
-<li>混用（JIS + ASME 材料）
-<ul class="org-ul">
-<li>→ ⚠ 必須確認：
-<ul class="org-ul">
-<li>法規接受性</li>
-<li>檢驗體系</li>
-</ul></li>
-<li>→ 否則：
-<ul class="org-ul">
-<li>❌ 不可設計</li>
-</ul></li>
+<li>UW-12 提供 \(\eta\) 公式</li>
+<li>非破壞檢驗結果與焊接方式影響最終 joint efficiency</li>
+<li>相鄰焊道過近可能降低可檢測性 → 影響工程判斷</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org316baa1" class="outline-3">
-<h3 id="org316baa1">工程原則</h3>
-<div class="outline-text-3" id="text-org316baa1">
+<div id="outline-container-orgc77f662" class="outline-2">
+<h2 id="orgc77f662">工程判斷分支</h2>
+<div class="outline-text-2" id="text-orgc77f662">
+</div>
+<div id="outline-container-org8a15f8e" class="outline-3">
+<h3 id="org8a15f8e">分支 1：全部焊道可檢測且間距合理</h3>
+<div class="outline-text-3" id="text-org8a15f8e">
 <ul class="org-ul">
-<li>設計規範 = 檢驗規範</li>
-<li>材料來源 ≠ 規範依據</li>
-<li>不可跨規範選擇「較有利條件」</li>
+<li>採用 Code 建議接頭效率</li>
+<li>NDT 等級符合 UW-12</li>
+<li>無需額外補償措施</li>
 </ul>
 </div>
 </div>
-</div>
-<div id="outline-container-orgf73ba87" class="outline-2">
-<h2 id="orgf73ba87">⚠ 焊接效率（Joint Efficiency, E）</h2>
-<div class="outline-text-2" id="text-orgf73ba87">
-</div>
-<div id="outline-container-org13080e0" class="outline-3">
-<h3 id="org13080e0">ASME（Section VIII Div.1）</h3>
-<div class="outline-text-3" id="text-org13080e0">
+<div id="outline-container-org1b05ac3" class="outline-3">
+<h3 id="org1b05ac3">分支 2：焊道間距不足或檢測受限</h3>
+<div class="outline-text-3" id="text-org1b05ac3">
 <ul class="org-ul">
-<li>無 RT → 0.7</li>
-<li>Spot RT → 0.85</li>
-<li>Full RT → 1.0</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org60eeddc" class="outline-3">
-<h3 id="org60eeddc">JIS（厚生勞動省告示）</h3>
-<div class="outline-text-3" id="text-org60eeddc">
+<li>採取補償措施：
 <ul class="org-ul">
-<li>Spot RT 可達：
-<ul class="org-ul">
-<li>E = 0.95</li>
-<li>抽照比例 ≥ 20%</li>
+<li>提升 NDT 等級（UT / Phased Array）</li>
+<li>分段 / Staggered 焊接</li>
+<li>預留 Inspection Window</li>
+<li>PWHT 評估（板厚 &gt; 38 mm）</li>
 </ul></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org9078f69" class="outline-3">
-<h3 id="org9078f69">⚠ 常見錯誤</h3>
-<div class="outline-text-3" id="text-org9078f69">
-<ul class="org-ul">
-<li>使用 JIS 設計</li>
-<li>卻套用 ASME 材料</li>
-<li>再使用 JIS 高 E（0.95）</li>
-</ul>
-
-<p>
-結果：
-</p>
-
-<ul class="org-ul">
-<li>厚度低估</li>
-<li>無法通過 ASME 檢驗</li>
-<li>設計責任不成立</li>
+<li>參考 <a href="weld-spacing-decision-node.html#ID-8ff1e1b5-5d11-40a5-b2a9-7b9c1b58bf0d">焊道間距 Decision Node</a> 了解詳細策略</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-org432c25d" class="outline-2">
-<h2 id="org432c25d">工程風險（Engineering Risk）</h2>
-<div class="outline-text-2" id="text-org432c25d">
-</div>
-<div id="outline-container-orgd4a56c5" class="outline-3">
-<h3 id="orgd4a56c5">設計風險</h3>
-<div class="outline-text-3" id="text-orgd4a56c5">
+<div id="outline-container-org341050c" class="outline-2">
+<h2 id="org341050c">案例 (Failure Case)</h2>
+<div class="outline-text-2" id="text-org341050c">
 <ul class="org-ul">
-<li>焊接效率錯誤</li>
-<li>容許應力使用錯誤</li>
-<li>腐蝕裕量遺漏</li>
+<li>板厚 20 mm</li>
+<li>焊道間距 2t</li>
+<li>RT 判讀困難 → 全部焊道 gouging</li>
+<li>工期與成本增加</li>
+<li>Joint efficiency 無法達到設計預期</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org94585b2" class="outline-3">
-<h3 id="org94585b2">認證風險</h3>
-<div class="outline-text-3" id="text-org94585b2">
+<div id="outline-container-org2c03552" class="outline-2">
+<h2 id="org2c03552">參考文件 (Reference)</h2>
+<div class="outline-text-2" id="text-org2c03552">
 <ul class="org-ul">
-<li>設計規範與檢驗不一致</li>
-<li>材料與規範衝突</li>
-<li>文件無法追溯</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgf45c8dc" class="outline-3">
-<h3 id="orgf45c8dc">法律風險</h3>
-<div class="outline-text-3" id="text-orgf45c8dc">
-<ul class="org-ul">
-<li>設計不符合規範</li>
-<li>發生事故責任歸屬設計者</li>
-</ul>
-
-
-<blockquote>
-<p>
-計算錯誤是技術問題，規範錯誤是責任問題。
-</p>
-</blockquote>
-</div>
-</div>
-</div>
-<div id="outline-container-orgc08f442" class="outline-2">
-<h2 id="orgc08f442">程式設計觀點（Software Perspective）</h2>
-<div class="outline-text-2" id="text-orgc08f442">
-<p>
-目前問題：
-</p>
-
-<ul class="org-ul">
-<li>材料數據需手動輸入</li>
-<li>焊接效率需人工判定</li>
-<li>規範無法自動切換</li>
-</ul>
-</div>
-<div id="outline-container-orgc73a480" class="outline-3">
-<h3 id="orgc73a480">建議系統架構</h3>
-<div class="outline-text-3" id="text-orgc73a480">
-<ul class="org-ul">
-<li>材料資料庫（Material DB）</li>
-<li>規範模組（Code Module）
-<ul class="org-ul">
-<li>ASME</li>
-<li>JIS</li>
-</ul></li>
-<li>焊接效率自動對應</li>
-<li>計算書自動輸出（PDF / HTML）</li>
-</ul>
-
-
-<blockquote>
-<p>
-工程軟體的核心不是計算，而是「避免錯用規範」。
-</p>
-</blockquote>
-</div>
-</div>
-</div>
-<div id="outline-container-orgb816091" class="outline-2">
-<h2 id="orgb816091">案例（Case Study）</h2>
-<div class="outline-text-2" id="text-orgb816091">
-<ul class="org-ul">
-<li>P = 1.0 MPa</li>
-<li>T = 50 ℃</li>
-<li>Material = SA-516M Gr.485</li>
-<li>S = 138 MPa</li>
-<li>E = 0.85</li>
-<li>Di = 1230 mm</li>
-<li>R = 1230 mm</li>
-<li>r = 123 mm</li>
-</ul>
-</div>
-<div id="outline-container-org15cbe98" class="outline-3">
-<h3 id="org15cbe98">討論重點</h3>
-<div class="outline-text-3" id="text-org15cbe98">
-<ul class="org-ul">
-<li>為何 E 不採用 0.95？</li>
-<li>若改為 ASME 設計，厚度變化？</li>
-<li>是否符合出口（如 EU / JP）要求？</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orgdff82df" class="outline-2">
-<h2 id="orgdff82df">延伸節點（Related Topics）</h2>
-<div class="outline-text-2" id="text-orgdff82df">
-<ul class="org-ul">
-<li>圓筒殼厚度設計</li>
-<li>焊接接頭分類</li>
-<li>材料容許應力查詢</li>
-<li>壓力容器認證流程</li>
+<li>ASME Section VIII Div.1, 2025 Edition, Table UW-12</li>
+<li>CNS 9788</li>
 </ul>
 
 <div class="ea-footer" style="clear: both; margin-top: 40px; padding: 20px 10px; border-top: 2px solid #FBC02D;">
   <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px;">
     <div style="flex: 1; min-width: 250px;">
-      <a href="../index.html" style="text-decoration: none; font-weight: bold; color: #D32F2F; border: 1px solid #D32F2F; padding: 5px 10px; border-radius: 4px;">← 厚度設計判斷</a>
+      <a href="../index.html" style="text-decoration: none; font-weight: bold; color: #D32F2F; border: 1px solid #D32F2F; padding: 5px 10px; border-radius: 4px;">← 返回 PV Insight Map 總導航</a>
     </div>
     <div style="flex: 1; text-align: right; min-width: 250px; font-size: 0.9em; color: #666;">
       <strong>各申機械設計工作室 (Each Application Studio)</strong><br>
