@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>設計責任定義（Design Responsibility）</title>
+<meta name="description" content="本文件定義壓力容器設計者的責任與簽署原則，強調設計控制權、UDR完整性及製造理解的重要性，以規避法律及工程風險。" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
   #content { max-width: 60em; margin: auto; }
@@ -215,7 +216,7 @@
 <li><a href="#orgc0decb4">法律風險來源</a></li>
 <li><a href="#org52393a6">工程判斷準則</a></li>
 <li><a href="#org4953d56">快速判斷（實務）</a></li>
-<li><a href="#orgd0bc89a">延伸節點</a></li>
+<li><a href="#org682fe8d">延伸閱讀</a></li>
 </ul>
 </div>
 </nav>
@@ -237,9 +238,7 @@
 <li>誰有權簽署設計文件？</li>
 </ul>
 
-<p>
-&#x2014;
-</p>
+<hr>
 </div>
 </div>
 <div id="outline-container-org55046ae" class="outline-2">
@@ -257,14 +256,13 @@
 <li>操作條件與設計條件</li>
 <li>法規需求（ASME / PED）</li>
 </ul>
-
-<p>
-→ <a href="https://sites.google.com/view/each-application/scope-of-technical-support/content-description-of-u-dr/user-design-requirements-udr-for-pressure-vessels">使用者設計需求</a>: 壓力容器屬於危險性設備，其設計源頭來自於 「使用者設計需求 (User's Design Requirements, UDR)」。一份完整的 UDR 是確保設備安全與符合法規的基礎。
-</p>
-
-<p>
-&#x2014;
-</p>
+<blockquote>
+<ul class="org-ul">
+<li><a href="https://sites.google.com/view/each-application/scope-of-technical-support/content-description-of-u-dr/user-design-requirements-udr-for-pressure-vessels">壓力容器使用者設計需求 (UDR) 指南</a>: 從「人事時地物」看 ASME 規範要點 <br>
+壓力容器屬於危險性設備，其設計源頭來自於 「使用者設計需求 (User's Design Requirements, UDR)」。一份完整的 UDR 是確保設備安全與符合法規的基礎。</li>
+</ul>
+</blockquote>
+<hr>
 
 <p>
 <b><b>2. 掌握設計方法</b></b>
@@ -277,8 +275,8 @@
 <p>
 → 強度計算
 → FEM 分析
-&#x2014;
 </p>
+<hr>
 
 <p>
 <b><b>3. 控制設計輸出</b></b>
@@ -291,8 +289,8 @@
 
 <p>
 → 設計文件
-&#x2014;
 </p>
+<hr>
 
 <p>
 <b><b>4. 了解製造條件</b></b>
@@ -303,11 +301,9 @@
 <li>檢驗方法</li>
 </ul>
 
-<p>
-&#x2014;
-</p>
+<hr>
 
-<div class="WARNING" id="org851b94d">
+<div class="WARNING" id="orge224c68">
 <p>
 若設計者未參與上述任一關鍵環節，
 則不應簽署設計文件。
@@ -315,9 +311,7 @@
 
 </div>
 
-<p>
-&#x2014;
-</p>
+<hr>
 </div>
 </div>
 <div id="outline-container-orgab6af23" class="outline-2">
@@ -333,9 +327,7 @@
 </p>
 </blockquote>
 
-<p>
-&#x2014;
-</p>
+<hr>
 
 <p>
 <b><b>包含以下能力：</b></b>
@@ -348,9 +340,7 @@
 <li>可要求製造變更</li>
 </ul>
 
-<p>
-&#x2014;
-</p>
+<hr>
 
 <p>
 <b><b>不具設計控制權的情境：</b></b>
@@ -363,11 +353,9 @@
 <li>僅被要求「出計算書」</li>
 </ul>
 
-<p>
-&#x2014;
-</p>
+<hr>
 
-<div class="WARNING" id="org44c50cb">
+<div class="WARNING" id="org705393f">
 <p>
 沒有設計控制權的設計者，
 本質上只是文件提供者，而非設計負責人。
@@ -375,9 +363,7 @@
 
 </div>
 
-<p>
-&#x2014;
-</p>
+<hr>
 </div>
 </div>
 <div id="outline-container-orgc0decb4" class="outline-2">
@@ -387,9 +373,7 @@
 以下情境屬於高風險：
 </p>
 
-<p>
-&#x2014;
-</p>
+<hr>
 
 <p>
 <b><b>1. 代簽設計文件</b></b>
@@ -408,9 +392,7 @@
 <li>無法證明設計合理性</li>
 </ul>
 
-<p>
-&#x2014;
-</p>
+<hr>
 
 <p>
 <b><b>2. 設計與製造分離</b></b>
@@ -428,9 +410,7 @@
 <li>實際設備不符合設計假設</li>
 </ul>
 
-<p>
-&#x2014;
-</p>
+<hr>
 
 <p>
 <b><b>3. 不完整設計輸入（UDR 缺失）</b></b>
@@ -448,9 +428,7 @@
 <li>計算結果無效</li>
 </ul>
 
-<p>
-&#x2014;
-</p>
+<hr>
 
 <p>
 <b><b>4. 文件用途錯誤</b></b>
@@ -463,8 +441,8 @@
 
 <p>
 → 文件分類
-&#x2014;
 </p>
+<hr>
 </div>
 </div>
 <div id="outline-container-org52393a6" class="outline-2">
@@ -481,9 +459,7 @@
 <li>文件是否將用於法規認證？</li>
 </ol>
 
-<p>
-&#x2014;
-</p>
+<hr>
 
 <blockquote>
 <p>
@@ -495,9 +471,7 @@
 </p>
 </blockquote>
 
-<p>
-&#x2014;
-</p>
+<hr>
 </div>
 </div>
 <div id="outline-container-org4953d56" class="outline-2">
@@ -526,19 +500,16 @@
 <li>無設計控制權案件</li>
 </ul>
 
-<p>
-&#x2014;
-</p>
+<hr>
 </div>
 </div>
-<div id="outline-container-orgd0bc89a" class="outline-2">
-<h2 id="orgd0bc89a">延伸節點</h2>
-<div class="outline-text-2" id="text-orgd0bc89a">
+<div id="outline-container-org682fe8d" class="outline-2">
+<h2 id="org682fe8d">延伸閱讀</h2>
+<div class="outline-text-2" id="text-org682fe8d">
 <ul class="org-ul">
 <li><a href="https://sites.google.com/view/each-application/scope-of-technical-support/content-description-of-u-dr">使用者設計需求（UDR）中文內容說明</a></li>
-<li>設計文件分類</li>
-<li>舊設計風險</li>
-<li>事後補文件風險</li>
+<li><a href="https://sites.google.com/view/each-application/scope-of-technical-support/engineering-risk-misconceptions#h.wj4reb5f1by7">是否可以僅協助「簽名」或「掛名」設計工程師？</a></li>
+<li><a href="https://sites.google.com/view/each-application/scope-of-technical-support/engineering-risk-misconceptions#h.3bsnw3tw600l">設備曾經做過，是否可以直接沿用舊圖或舊計算？</a></li>
 </ul>
 
 <div class="ea-footer" style="clear: both; margin-top: 40px; padding: 20px 10px; border-top: 2px solid #FBC02D;">
