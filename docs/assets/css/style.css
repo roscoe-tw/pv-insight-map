@@ -10,31 +10,30 @@
     }
 }
 
-/* --- 手機模式樣式修正 (針對 org.css) --- */
+/* style.css */
+
 @media (max-width: 768px) {
-    /* 1. 隱藏 ReadTheOrg 殘留在 HTML 裡的靜態按鈕文字 */
-    #table-of-contents .close, 
-    #table-of-contents .wireframe {
-        display: none !important;
+    /* 強制修正手機模式下目錄的列表縮排 */
+    #text-table-of-contents ul {
+        margin-left: 1.5em !important;   /* 統一左側縮排距離 */
+        padding-left: 0 !important;      /* 清除不同瀏覽器的預設 padding 差異 */
+        list-style-type: disc !important; /* 確保有清單點，增加易讀性 */
     }
 
-    /* 2. 讓 org.css 的目錄標題更好看一點 */
-    #table-of-contents h2 {
-        font-size: 1.2em;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 5px;
-        color: #2c3e50;
+    #text-table-of-contents li {
+        margin-top: 0.5em !important;    /* 增加垂直間距，方便手機手指點擊 */
+        margin-bottom: 0.5em !important;
     }
 
-    /* 3. 手機版強制將邊距歸零，讓 org.css 滿版顯示 */
-    #content {
-        margin: 0 auto !important;
-        padding: 15px !important;
-        width: auto !important;
+    /* 針對巢狀清單（第二層目錄）的進一步縮排 */
+    #text-table-of-contents ul ul {
+        margin-left: 1.2em !important;
+        list-style-type: circle !important;
     }
-    
-    /* 4. 隱藏麵包屑，保持 org.css 的簡潔感 */
-    .breadcrumb-container {
-        display: none !important;
+
+    /* 確保目錄連結不會因為縮排太擠而折行 */
+    #text-table-of-contents a {
+        display: inline-block;
+        padding: 2px 0;
     }
 }
