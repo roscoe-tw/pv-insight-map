@@ -1,38 +1,40 @@
-.top-nav {
-    background: #2c3e50;
-    color: white;
-    padding: 12px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky; /* 讓導航列固定在頂部 */
-    top: 0;
-    z-index: 1000;
-    font-family: sans-serif;
+/* --- PC 模式樣式修正 --- */
+@media (min-width: 769px) {
+    /* 確保 PC 版有正確的 300px 偏移 */
+    #preamble .breadcrumb-container {
+        margin-left: 300px !important;
+        display: block !important;
+    }
+    #content {
+        margin-left: 300px !important;
+    }
 }
 
-.nav-back {
-    background: #3498db;
-    color: white !important;
-    padding: 4px 12px;
-    border-radius: 4px;
-    text-decoration: none;
-    margin-left: 5px;
-    font-weight: bold;
-    transition: background 0.2s;
-}
+/* --- 手機模式樣式修正 (針對 org.css) --- */
+@media (max-width: 768px) {
+    /* 1. 隱藏 ReadTheOrg 殘留在 HTML 裡的靜態按鈕文字 */
+    #table-of-contents .close, 
+    #table-of-contents .wireframe {
+        display: none !important;
+    }
 
-.nav-back:hover {
-    background: #2980b9;
-    text-decoration: none;
-}
+    /* 2. 讓 org.css 的目錄標題更好看一點 */
+    #table-of-contents h2 {
+        font-size: 1.2em;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 5px;
+        color: #2c3e50;
+    }
 
-.breadcrumb-separator {
-    margin: 0 10px;
-    color: #95a5a6;
-}
-
-.studio-tag {
-    font-size: 0.85em;
-    opacity: 0.8;
+    /* 3. 手機版強制將邊距歸零，讓 org.css 滿版顯示 */
+    #content {
+        margin: 0 auto !important;
+        padding: 15px !important;
+        width: auto !important;
+    }
+    
+    /* 4. 隱藏麵包屑，保持 org.css 的簡潔感 */
+    .breadcrumb-container {
+        display: none !important;
+    }
 }
