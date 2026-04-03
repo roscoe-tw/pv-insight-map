@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-tw">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>PV Insight Map — 壓力容器工程判斷導航</title>
-<meta name="description" content="PV Insight Map 協助工程師導航 ASME Sec.VIII Div.1 壓力容器設計的關鍵工程判斷，解決設計條件、厚度、開孔補強、焊接效率、檢驗與認證等常見問題，確保設計符合規範並降低風險。" />
+<title>開孔補強判斷（Openings &amp; Reinforcement）</title>
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
   #content { max-width: 60em; margin: auto; }
@@ -222,132 +221,261 @@
     });
   }
 </script>
-<link rel="canonical" href="https://roscoe-tw.github.io/pv-insight-map/">
+<link rel="canonical" href="https://roscoe-tw.github.io/pv-insight-map/openings/">
 </head>
 <body>
+<div id="preamble" class="status">
+<div class="breadcrumb-container">
+  <a href="https://roscoe-tw.github.io/pv-insight-map/" class="bc-item">返回 PV Insight Map</a> 
+  <!-- <span class="bc-sep">›</span> 
+  <span class="bc-current">設計條件判斷</span>-->
+</div>
+</div>
 <div id="content" class="content">
 <header>
-<h1 class="title">PV Insight Map — 壓力容器工程判斷導航</h1>
-<p class="subtitle" role="doc-subtitle">Engineering Decision Map for Pressure Vessel Design</p>
+<h1 class="title">開孔補強判斷（Openings &amp; Reinforcement）</h1>
 </header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org98251b0">你現在遇到哪個問題？</a>
+<li><a href="#orgc1e4b44">🧭 問題分類（Problem Map）</a>
 <ul>
-<li><a href="#orgc925755">設計條件不明確</a></li>
-<li><a href="#orgb5025e7">厚度設計不確定</a></li>
-<li><a href="#orge2f2b70">開孔補強是否足夠</a></li>
-<li><a href="#orga667763">焊接效率如何選擇</a></li>
-<li><a href="#org8e1b24b">檢驗與試驗要求</a></li>
-<li><a href="#orgcfd4823">認證與文件問題</a></li>
+<li><a href="#orgb244685">是否需要補強？</a></li>
+<li><a href="#org4c1df22">補強面積是否足夠？</a></li>
+<li><a href="#org1e1cce0">補強範圍如何定義？</a></li>
 </ul>
 </li>
-<li><a href="#org738cf77">為什麼需要工程判斷？</a></li>
-<li><a href="#org2c58140">技術支援</a></li>
+<li><a href="#org2848ddd">🔍 工程判斷流程（快速入口）</a></li>
+<li><a href="#need-reinforcement">🧩 是否需要補強？（UG-36）</a></li>
+<li><a href="#area-adequacy">📐 補強面積是否足夠？（UG-37）</a></li>
+<li><a href="#reinforcement-limit">📏 補強範圍如何定義？（UG-40）</a></li>
+<li><a href="#org56ca113">⚠️ 常見工程誤解</a></li>
+<li><a href="#orgc5641f8">🧠 工程本質</a></li>
+<li><a href="#org21472db">🎯 工程情境</a></li>
+<li><a href="#orge45fb13">🔗 延伸</a></li>
+<li><a href="#org60369c3">🧠 節點定位</a></li>
 </ul>
 </div>
 </nav>
 <p>
-由「各申機械設計工作室」維護，專注於 ASME Sec.VIII Div.1 等國際規範實務應用。
-</p>
-<div id="outline-container-org98251b0" class="outline-2">
-<h2 id="org98251b0">你現在遇到哪個問題？</h2>
-<div class="outline-text-2" id="text-org98251b0">
-<p>
-在壓力容器設計與認證過程中，多數風險來自於「錯誤的判斷起點」。
+本節為開孔補強之工程判斷入口，涵蓋 ASME Sec.VIII Div.1 UG-36 ~ UG-43。
 </p>
 
-<p>
-請選擇你目前的工程問題：
-</p>
+<hr>
+<div id="outline-container-orgc1e4b44" class="outline-2">
+<h2 id="orgc1e4b44">🧭 問題分類（Problem Map）</h2>
+<div class="outline-text-2" id="text-orgc1e4b44">
 </div>
-<div id="outline-container-orgc925755" class="outline-3">
-<h3 id="orgc925755">設計條件不明確</h3>
-<div class="outline-text-3" id="text-orgc925755">
+<div id="outline-container-orgb244685" class="outline-3">
+<h3 id="orgb244685">是否需要補強？</h3>
+<div class="outline-text-3" id="text-orgb244685">
 <p>
-<a href="design-conditions/index.html">→ 設計條件判斷</a>
-</p>
-</div>
-</div>
-<div id="outline-container-orgb5025e7" class="outline-3">
-<h3 id="orgb5025e7">厚度設計不確定</h3>
-<div class="outline-text-3" id="text-orgb5025e7">
-<p>
-<a href="thickness/index.html">→ 厚度設計判斷（UG-27 / UG-28）</a>
+→ <a href="#need-reinforcement">UG-36 判斷</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orge2f2b70" class="outline-3">
-<h3 id="orge2f2b70">開孔補強是否足夠</h3>
-<div class="outline-text-3" id="text-orge2f2b70">
+<div id="outline-container-org4c1df22" class="outline-3">
+<h3 id="org4c1df22">補強面積是否足夠？</h3>
+<div class="outline-text-3" id="text-org4c1df22">
 <p>
-<a href="openings/index.html">→ 開孔補強判斷（UG-36 ~ UG-43）</a>
+→ <a href="#area-adequacy">UG-37 判斷</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orga667763" class="outline-3">
-<h3 id="orga667763">焊接效率如何選擇</h3>
-<div class="outline-text-3" id="text-orga667763">
+<div id="outline-container-org1e1cce0" class="outline-3">
+<h3 id="org1e1cce0">補強範圍如何定義？</h3>
+<div class="outline-text-3" id="text-org1e1cce0">
 <p>
-<a href="welding/index.html#ID-60b203cd-6281-47b5-86cf-b3fe1c95888b">→ 接頭效率與焊接設計（UW-12）</a>
-</p>
-</div>
-</div>
-<div id="outline-container-org8e1b24b" class="outline-3">
-<h3 id="org8e1b24b">檢驗與試驗要求</h3>
-<div class="outline-text-3" id="text-org8e1b24b">
-<p>
-<a href="#org2c58140">→ 檢驗與壓力試驗（UG-99）</a>
-</p>
-</div>
-</div>
-<div id="outline-container-orgcfd4823" class="outline-3">
-<h3 id="orgcfd4823">認證與文件問題</h3>
-<div class="outline-text-3" id="text-orgcfd4823">
-<p>
-<a href="#org2c58140">→ MDR / ASME 認證流程</a>
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-org738cf77" class="outline-2">
-<h2 id="org738cf77">為什麼需要工程判斷？</h2>
-<div class="outline-text-2" id="text-org738cf77">
-<p>
-ASME Code 提供的是「規範」，不是「設計答案」。
+→ <a href="#reinforcement-limit">UG-40 判斷</a>
 </p>
 
+<hr>
+</div>
+</div>
+</div>
+<div id="outline-container-org2848ddd" class="outline-2">
+<h2 id="org2848ddd">🔍 工程判斷流程（快速入口）</h2>
+<div class="outline-text-2" id="text-org2848ddd">
+
+<figure id="orga9e5a85">
+<img src="images/opening-overview.png" alt="opening-overview.png">
+
+</figure>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-need-reinforcement" class="outline-2">
+<h2 id="need-reinforcement">🧩 是否需要補強？（UG-36）</h2>
+<div class="outline-text-2" id="text-need-reinforcement">
 <p>
-錯誤的套用方式，可能導致：
+判斷是否符合免補強條件：
 </p>
 
 <ul class="org-ul">
-<li>設計不符合規範</li>
-<li>重工與認證失敗</li>
-<li>法規責任風險</li>
+<li>小開孔（small opening）</li>
+<li>壓力與尺寸限制</li>
+<li>殼體厚度足夠</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org2c58140" class="outline-2">
-<h2 id="org2c58140">技術支援</h2>
-<div class="outline-text-2" id="text-org2c58140">
+
+<blockquote>
 <p>
-若您需要：
+符合 UG-36(c)(3) → 可免補強
+</p>
+</blockquote>
+
+<p>
+👉 若不符合 → 必須進行補強設計
+</p>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-area-adequacy" class="outline-2">
+<h2 id="area-adequacy">📐 補強面積是否足夠？（UG-37）</h2>
+<div class="outline-text-2" id="text-area-adequacy">
+<p>
+核心原則：
+</p>
+
+<blockquote>
+<p>
+可用補強面積 ≥ 移除面積
+</p>
+</blockquote>
+
+<p>
+補強來源包含：
 </p>
 
 <ul class="org-ul">
-<li>設計審查</li>
-<li>Code 適用性判斷</li>
-<li>認證風險評估</li>
+<li>殼體 excess thickness</li>
+<li>nozzle neck 厚度</li>
+<li>reinforcement pad</li>
 </ul>
 
-<div style="max-width: 600px; margin: 2em auto; text-align: center; position: relative; left: 20px;">
 <p>
-<b><b>確保您的壓力容器設計安全可靠，符合所有法規要求。</b></b><br>
-<b><b>立即聯絡各申機械設計工作室，獲取專業諮詢與支援，讓您的工程無懈可擊。</b></b> <br>
-<a href="https://sites.google.com/view/each-application/contact-us">聯繫我們</a> | <a href="https://sites.google.com/view/each-application/scope-of-technical-support">探索我們的服務</a>
+👉 此為設計成立的核心判斷
 </p>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-reinforcement-limit" class="outline-2">
+<h2 id="reinforcement-limit">📏 補強範圍如何定義？（UG-40）</h2>
+<div class="outline-text-2" id="text-reinforcement-limit">
+<p>
+補強面積計算限制：
+</p>
+
+<ul class="org-ul">
+<li>僅能計算有效距離內材料</li>
+<li>超出範圍不可列入補強</li>
+</ul>
+
+<p>
+👉 常見錯誤來源
+</p>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-org56ca113" class="outline-2">
+<h2 id="org56ca113">⚠️ 常見工程誤解</h2>
+<div class="outline-text-2" id="text-org56ca113">
+<ul class="org-ul">
+<li>❌ 只看 nozzle 厚度</li>
+<li>❌ 忽略 reinforcement area 分布</li>
+<li>❌ 未正確定義 limits of reinforcement</li>
+<li>❌ 認為補強板一定需要</li>
+</ul>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-orgc5641f8" class="outline-2">
+<h2 id="orgc5641f8">🧠 工程本質</h2>
+<div class="outline-text-2" id="text-orgc5641f8">
+<p>
+開孔補強不是「補多少厚度」
+</p>
+
+<p>
+而是：
+</p>
+
+<blockquote>
+<p>
+→ 面積補償問題（Area Replacement Concept）
+</p>
+</blockquote>
+
+<p>
+👉 設計重點在「平衡」，不是「加強」
+</p>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-org21472db" class="outline-2">
+<h2 id="org21472db">🎯 工程情境</h2>
+<div class="outline-text-2" id="text-org21472db">
+<p>
+你可能遇到：
+</p>
+
+<ul class="org-ul">
+<li>小型 nozzle（儀表）</li>
+<li>manway（大型開孔）</li>
+<li>高壓設備（補強敏感）</li>
+<li>多開孔區域（需 UG-39）</li>
+</ul>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-orge45fb13" class="outline-2">
+<h2 id="orge45fb13">🔗 延伸</h2>
+<div class="outline-text-2" id="text-orge45fb13">
+<ul class="org-ul">
+<li>→ 補強面積計算（UG-37 詳解）</li>
+<li>→ 殼體厚度設計</li>
+<li>→ 接管設計</li>
+</ul>
+<hr>
+</div>
+</div>
+<div id="outline-container-org60369c3" class="outline-2">
+<h2 id="org60369c3">🧠 節點定位</h2>
+<div class="outline-text-2" id="text-org60369c3">
+<p>
+本頁為：
+</p>
+
+<p>
+👉 Level 1：開孔補強總覽（入口節點）
+</p>
+
+<p>
+負責導向：
+</p>
+
+<ul class="org-ul">
+<li><a href="#need-reinforcement">是否補強（UG-36）</a></li>
+<li><a href="#area-adequacy">面積計算（UG-37）</a></li>
+<li><a href="#reinforcement-limit">範圍限制（UG-40）</a></li>
+</ul>
+
+<div class="ea-footer" style="clear: both; margin-top: 40px; padding: 20px 10px; border-top: 2px solid #FBC02D;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px;">
+    <div style="flex: 1; min-width: 250px;">
+      <a href="../index.html" style="text-decoration: none; font-weight: bold; color: #D32F2F; border: 1px solid #D32F2F; padding: 5px 10px; border-radius: 4px;">← 返回 PV Insight Map 總導航</a>
+    </div>
+    <div style="flex: 1; text-align: right; min-width: 250px; font-size: 0.9em; color: #666;">
+      <strong>各申機械設計工作室 <br>(Each Application Mechanical Design Studio)</strong><br>
+      專業壓力容器設計 · 風險評估 · 法規諮詢
+    </div>
+  </div>
 </div>
 </div>
 </div>
