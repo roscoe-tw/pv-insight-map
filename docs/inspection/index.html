@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>壓力試驗（UG-99）工程判斷</title>
+<meta name="description" content="深入探討 ASME UG-99 壓力容器水壓試驗（Hydrostatic Test），涵蓋試驗方式選擇、壓力決定、執行細節、結構風險評估與責任劃分，旨在確保設計與製造符合規範並驗證最終完整性。" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+
+<link rel="stylesheet" type="text/css" href="https://roscoe-tw.github.io/pv-insight-map/assets/css/style.css"/>
+<script type="text/javascript" src="https://roscoe-tw.github.io/pv-insight-map/assets/js/script.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" 
+      href="https://gongzhitaao.org/orgcss/org.css" 
+      media="(max-width: 768px)">
+
+<link rel="stylesheet" type="text/css" 
+      href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css" 
+      media="(min-width: 769px)">
+<link rel="stylesheet" type="text/css" 
+      href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css" 
+      media="(min-width: 769px)">
+
+<script>
+  if (window.innerWidth > 768) {
+    const scripts = [
+      'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js',
+      'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js',
+      'https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js'
+    ];
+    scripts.forEach(src => {
+      let s = document.createElement('script');
+      s.src = src;
+      s.async = false;
+      document.head.appendChild(s);
+    });
+  }
+</script>
+<link rel="canonical" href="https://roscoe-tw.github.io/pv-insight-map/inspection/">
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="breadcrumb-container">
+  <a href="https://roscoe-tw.github.io/pv-insight-map/" class="bc-item">返回 PV Insight Map</a> 
+  <!-- <span class="bc-sep">›</span> 
+  <span class="bc-current">設計條件判斷</span>-->
+</div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">壓力試驗（UG-99）工程判斷</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#ug99-hydrotest">UG-99 壓力試驗（Hydrostatic Test）</a></li>
+<li><a href="#org0329bba">試驗方式選擇（Test Method）</a>
+<ul>
+<li><a href="#orgde20846">是否可進行水壓試驗？</a></li>
+<li><a href="#org552a311">為何不能用水？</a></li>
+<li><a href="#org2a3f287">風險判斷（氣壓）</a></li>
+</ul>
+</li>
+<li><a href="#org88f7e82">試驗壓力決定（Test Pressure）</a>
+<ul>
+<li><a href="#org0074cc7">計算公式</a></li>
+<li><a href="#org0949788">必要輸入</a></li>
+<li><a href="#org90bf585">判斷節點</a>
+<ul>
+<li><a href="#org54ba542">S<sub>t</sub> / S<sub>d</sub> 是否 &gt; 1？</a></li>
+<li><a href="#orgc328be1">是否造成過度應力（Overstress）？</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgf4972d6">試驗條件檢查（Pre-Test Check）</a>
+<ul>
+<li><a href="#org4d3ce63">壓力表</a></li>
+<li><a href="#orgbc0e50c">排氣</a></li>
+<li><a href="#orgda2396d">支撐條件</a></li>
+</ul>
+</li>
+<li><a href="#org007f927">升壓與保壓（Pressurization）</a>
+<ul>
+<li><a href="#org606ff5f">升壓方式</a></li>
+<li><a href="#org45ffc1d">保壓</a></li>
+</ul>
+</li>
+<li><a href="#org4d416c4">檢驗判定（Acceptance Criteria）</a>
+<ul>
+<li><a href="#org6849fe1">是否有洩漏？</a></li>
+<li><a href="#org65c03c3">是否有可見變形？</a></li>
+<li><a href="#org3add1ee">是否有異常聲音 / 局部失效？</a></li>
+</ul>
+</li>
+<li><a href="#org2420d97">結構風險評估（Critical Risk）</a>
+<ul>
+<li><a href="#org589a51a">最弱點分析</a></li>
+<li><a href="#org93f305a">試驗載荷 vs 設計載荷</a></li>
+</ul>
+</li>
+<li><a href="#org91c31e1">責任邊界（Responsibility Boundary）</a>
+<ul>
+<li><a href="#org5a5c004">誰決定 Test Pressure？</a></li>
+<li><a href="#org952f9e2">誰確認材料性質（S<sub>t</sub> / S<sub>d</sub>）？</a></li>
+<li><a href="#orga12ef20">誰負責試驗程序？</a></li>
+<li><a href="#org7495799">AI（Authorized Inspector）角色</a></li>
+</ul>
+</li>
+<li><a href="#org1fd2400">常見工程錯誤（Common Pitfalls）</a></li>
+<li><a href="#orgf6fcc62">工程建議（Engineering Actions）</a>
+<ul>
+<li><a href="#orgebb89b7">試驗前</a></li>
+<li><a href="#org712289d">文件化</a></li>
+</ul>
+</li>
+<li><a href="#orgb8a5b8b">關聯節點（Cross Links）</a></li>
+</ul>
+</div>
+</nav>
+<div id="outline-container-ug99-hydrotest" class="outline-2">
+<h2 id="ug99-hydrotest">UG-99 壓力試驗（Hydrostatic Test）</h2>
+<div class="outline-text-2" id="text-ug99-hydrotest">
+<p>
+本節為壓力容器最終完整性驗證節點，
+涵蓋試驗壓力決定、試驗方式選擇、結構風險與責任邊界。
+</p>
+
+<blockquote>
+<p>
+通過試驗 ≠ 設計正確  
+試驗的本質是「驗證」，不是「設計替代」
+</p>
+</blockquote>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-org0329bba" class="outline-2">
+<h2 id="org0329bba">試驗方式選擇（Test Method）</h2>
+<div class="outline-text-2" id="text-org0329bba">
+</div>
+<div id="outline-container-orgde20846" class="outline-3">
+<h3 id="orgde20846">是否可進行水壓試驗？</h3>
+<div class="outline-text-3" id="text-orgde20846">
+<ul class="org-ul">
+<li>→ YES → UG-99（Hydrostatic Test）</li>
+<li>→ NO  → UG-100（Pneumatic Test）</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org552a311" class="outline-3">
+<h3 id="org552a311">為何不能用水？</h3>
+<div class="outline-text-3" id="text-org552a311">
+<ul class="org-ul">
+<li>污染風險（Process sensitive）</li>
+<li>重量限制（大型設備）</li>
+<li>無法乾燥（如低溫設備）</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2a3f287" class="outline-3">
+<h3 id="org2a3f287">風險判斷（氣壓）</h3>
+<div class="outline-text-3" id="text-org2a3f287">
+<ul class="org-ul">
+<li>是否完成風險評估？</li>
+<li>是否設置安全距離？</li>
+<li>是否分段升壓？</li>
+</ul>
+
+<hr>
+</div>
+</div>
+</div>
+<div id="outline-container-org88f7e82" class="outline-2">
+<h2 id="org88f7e82">試驗壓力決定（Test Pressure）</h2>
+<div class="outline-text-2" id="text-org88f7e82">
+</div>
+<div id="outline-container-org0074cc7" class="outline-3">
+<h3 id="org0074cc7">計算公式</h3>
+<div class="outline-text-3" id="text-org0074cc7">
+<div class="org-src-container">
+<pre class="src src-maxima">P[test] = 1.3 × MAWP × (S[t] / S[d])
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org0949788" class="outline-3">
+<h3 id="org0949788">必要輸入</h3>
+<div class="outline-text-3" id="text-org0949788">
+<ul class="org-ul">
+<li>MAWP</li>
+<li>設計溫度（Design Temp）</li>
+<li>試驗溫度（Test Temp）</li>
+<li>材料 Allowable Stress（S<sub>t</sub>, S<sub>d</sub>）</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org90bf585" class="outline-3">
+<h3 id="org90bf585">判斷節點</h3>
+<div class="outline-text-3" id="text-org90bf585">
+</div>
+<div id="outline-container-org54ba542" class="outline-4">
+<h4 id="org54ba542">S<sub>t</sub> / S<sub>d</sub> 是否 &gt; 1？</h4>
+<div class="outline-text-4" id="text-org54ba542">
+<ul class="org-ul">
+<li>→ YES → 試驗壓力提高（高風險）</li>
+<li>→ NO  → 正常</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc328be1" class="outline-4">
+<h4 id="orgc328be1">是否造成過度應力（Overstress）？</h4>
+<div class="outline-text-4" id="text-orgc328be1">
+<ul class="org-ul">
+<li>Nozzle</li>
+<li>Flange</li>
+<li>Support（Skirt / Saddle）</li>
+</ul>
+
+<hr>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf4972d6" class="outline-2">
+<h2 id="orgf4972d6">試驗條件檢查（Pre-Test Check）</h2>
+<div class="outline-text-2" id="text-orgf4972d6">
+</div>
+<div id="outline-container-org4d3ce63" class="outline-3">
+<h3 id="org4d3ce63">壓力表</h3>
+<div class="outline-text-3" id="text-org4d3ce63">
+<ul class="org-ul">
+<li>是否校驗？</li>
+<li>量程是否合理（1.5~4 × Test Pressure）？</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbc0e50c" class="outline-3">
+<h3 id="orgbc0e50c">排氣</h3>
+<div class="outline-text-3" id="text-orgbc0e50c">
+<ul class="org-ul">
+<li>是否完全排除 air pocket？</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgda2396d" class="outline-3">
+<h3 id="orgda2396d">支撐條件</h3>
+<div class="outline-text-3" id="text-orgda2396d">
+<ul class="org-ul">
+<li>是否與設計條件不同？</li>
+<li>是否產生額外應力？</li>
+</ul>
+
+<hr>
+</div>
+</div>
+</div>
+<div id="outline-container-org007f927" class="outline-2">
+<h2 id="org007f927">升壓與保壓（Pressurization）</h2>
+<div class="outline-text-2" id="text-org007f927">
+</div>
+<div id="outline-container-org606ff5f" class="outline-3">
+<h3 id="org606ff5f">升壓方式</h3>
+<div class="outline-text-3" id="text-org606ff5f">
+<ul class="org-ul">
+<li>是否緩慢升壓？</li>
+<li>是否分段檢查？</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org45ffc1d" class="outline-3">
+<h3 id="org45ffc1d">保壓</h3>
+<div class="outline-text-3" id="text-org45ffc1d">
+<ul class="org-ul">
+<li>是否達到穩定？</li>
+<li>是否觀察壓力下降？</li>
+</ul>
+
+<hr>
+</div>
+</div>
+</div>
+<div id="outline-container-org4d416c4" class="outline-2">
+<h2 id="org4d416c4">檢驗判定（Acceptance Criteria）</h2>
+<div class="outline-text-2" id="text-org4d416c4">
+</div>
+<div id="outline-container-org6849fe1" class="outline-3">
+<h3 id="org6849fe1">是否有洩漏？</h3>
+<div class="outline-text-3" id="text-org6849fe1">
+<ul class="org-ul">
+<li>→ YES → 不合格</li>
+<li>→ NO  → 合格</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org65c03c3" class="outline-3">
+<h3 id="org65c03c3">是否有可見變形？</h3>
+<div class="outline-text-3" id="text-org65c03c3">
+<ul class="org-ul">
+<li>Bulging</li>
+<li>Permanent deformation</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3add1ee" class="outline-3">
+<h3 id="org3add1ee">是否有異常聲音 / 局部失效？</h3>
+<div class="outline-text-3" id="text-org3add1ee">
+<hr>
+</div>
+</div>
+</div>
+<div id="outline-container-org2420d97" class="outline-2">
+<h2 id="org2420d97">結構風險評估（Critical Risk）</h2>
+<div class="outline-text-2" id="text-org2420d97">
+</div>
+<div id="outline-container-org589a51a" class="outline-3">
+<h3 id="org589a51a">最弱點分析</h3>
+<div class="outline-text-3" id="text-org589a51a">
+<ul class="org-ul">
+<li>Nozzle reinforcement（UG-37）</li>
+<li>Manway</li>
+<li>Flange</li>
+<li>Weld HAZ</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org93f305a" class="outline-3">
+<h3 id="org93f305a">試驗載荷 vs 設計載荷</h3>
+<div class="outline-text-3" id="text-org93f305a">
+<ul class="org-ul">
+<li>是否存在：
+<ul class="org-ul">
+<li>額外外力</li>
+<li>支撐拘束</li>
+<li>Nozzle load 放大？</li>
+</ul></li>
+</ul>
+
+<hr>
+</div>
+</div>
+</div>
+<div id="outline-container-org91c31e1" class="outline-2">
+<h2 id="org91c31e1">責任邊界（Responsibility Boundary）</h2>
+<div class="outline-text-2" id="text-org91c31e1">
+</div>
+<div id="outline-container-org5a5c004" class="outline-3">
+<h3 id="org5a5c004">誰決定 Test Pressure？</h3>
+<div class="outline-text-3" id="text-org5a5c004">
+<ul class="org-ul">
+<li>設計工程師？</li>
+<li>製造廠？</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org952f9e2" class="outline-3">
+<h3 id="org952f9e2">誰確認材料性質（S<sub>t</sub> / S<sub>d</sub>）？</h3>
+</div>
+
+<div id="outline-container-orga12ef20" class="outline-3">
+<h3 id="orga12ef20">誰負責試驗程序？</h3>
+<div class="outline-text-3" id="text-orga12ef20">
+<ul class="org-ul">
+<li>是否有書面 Procedure？</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7495799" class="outline-3">
+<h3 id="org7495799">AI（Authorized Inspector）角色</h3>
+<div class="outline-text-3" id="text-org7495799">
+<ul class="org-ul">
+<li>見證（Witness）</li>
+<li>不負設計責任</li>
+</ul>
+
+<blockquote>
+<p>
+UG-99 是責任交會點：
+設計 / 製造 / 檢驗 在此匯合
+</p>
+</blockquote>
+
+<hr>
+</div>
+</div>
+</div>
+<div id="outline-container-org1fd2400" class="outline-2">
+<h2 id="org1fd2400">常見工程錯誤（Common Pitfalls）</h2>
+<div class="outline-text-2" id="text-org1fd2400">
+<ul class="org-ul">
+<li>直接使用 1.3 × MAWP（忽略 S<sub>t</sub> / S<sub>d</sub>）</li>
+<li>未檢查 nozzle / flange 在 test condition</li>
+<li>將「通過試驗」視為設計正確</li>
+<li>設計工程師未參與試驗條件設定</li>
+</ul>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-orgf6fcc62" class="outline-2">
+<h2 id="orgf6fcc62">工程建議（Engineering Actions）</h2>
+<div class="outline-text-2" id="text-orgf6fcc62">
+</div>
+<div id="outline-container-orgebb89b7" class="outline-3">
+<h3 id="orgebb89b7">試驗前</h3>
+<div class="outline-text-3" id="text-orgebb89b7">
+<ul class="org-ul">
+<li>Nozzle load 評估（WRC / FEA）</li>
+<li>Flange rating check（Test Temp）</li>
+<li>Support stress 檢查</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org712289d" class="outline-3">
+<h3 id="org712289d">文件化</h3>
+<div class="outline-text-3" id="text-org712289d">
+<ul class="org-ul">
+<li>Test Procedure</li>
+<li>壓力計校驗紀錄</li>
+<li>試驗報告（含壓力曲線）</li>
+</ul>
+
+<hr>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb8a5b8b" class="outline-2">
+<h2 id="orgb8a5b8b">關聯節點（Cross Links）</h2>
+<div class="outline-text-2" id="text-orgb8a5b8b">
+<ul class="org-ul">
+<li><a href="../thickness/index.html#ID-70579dd4-30ca-41f9-a7e1-4545f62c582d">殼體厚度設計</a></li>
+<li><a href="../openings/index.html#ID-f5771a85-141f-4b87-a5e6-155131c9f5c7">開孔補強（UG-36 ~ UG-40）</a></li>
+</ul>
+
+<ul class="org-ul">
+<li><a href="./hydrotest.html">水壓試驗</a></li>
+</ul>
+
+<div class="ea-footer" style="clear: both; margin-top: 40px; padding: 20px 10px; border-top: 2px solid #FBC02D;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px;">
+    <div style="flex: 1; min-width: 250px;">
+      <a href="../index.html" style="text-decoration: none; font-weight: bold; color: #D32F2F; border: 1px solid #D32F2F; padding: 5px 10px; border-radius: 4px;">← 返回 PV Insight Map 總導航</a>
+    </div>
+    <div style="flex: 1; text-align: right; min-width: 250px; font-size: 0.9em; color: #666;">
+      <strong>各申機械設計工作室 <br>(Each Application Mechanical Design Studio)</strong><br>
+      專業壓力容器設計 · 風險評估 · 法規諮詢
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

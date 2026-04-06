@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://roscoe-tw.github.io/pv-insight-map/sitemap.xml

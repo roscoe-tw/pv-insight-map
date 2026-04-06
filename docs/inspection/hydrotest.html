@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-tw">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>PV Insight Map — 壓力容器工程判斷導航</title>
-<meta name="description" content="PV Insight Map 協助工程師導航 ASME Sec.VIII Div.1 壓力容器設計的關鍵工程判斷，解決設計條件、厚度、開孔補強、焊接效率、檢驗與認證等常見問題，確保設計符合規範並降低風險。" />
+<title>壓力試驗（Hydrotest / UG-99）</title>
+<meta name="description" content="本文件深入闡釋 ASME UG-99 壓力容器水壓試驗（Hydrotest）的真實角色與限制，詳細說明試驗壓力、介質、檢驗內容及 AI 見證責任。同時對比 UG-100 氣壓試驗及其高風險性，並關鍵強調水壓試驗僅為「製造品質」與「短期結構完整性」的驗證節點，而非設計正確性或長期安全的保證，旨在糾正常見的工程誤解。" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
   #content { max-width: 60em; margin: auto; }
@@ -222,132 +222,278 @@
     });
   }
 </script>
-<link rel="canonical" href="https://roscoe-tw.github.io/pv-insight-map/">
 </head>
 <body>
+<div id="preamble" class="status">
+<div class="breadcrumb-container">
+  <a href="https://roscoe-tw.github.io/pv-insight-map/" class="bc-item">返回 PV Insight Map</a> 
+  <!-- <span class="bc-sep">›</span> 
+  <span class="bc-current">設計條件判斷</span>-->
+</div>
+</div>
 <div id="content" class="content">
 <header>
-<h1 class="title">PV Insight Map — 壓力容器工程判斷導航</h1>
-<p class="subtitle" role="doc-subtitle">Engineering Decision Map for Pressure Vessel Design</p>
+<h1 class="title">壓力試驗（Hydrotest / UG-99）</h1>
 </header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org98251b0">你現在遇到哪個問題？</a>
+<li><a href="#hydrotest-role">1. 🧭 節點定位</a></li>
+<li><a href="#hydrotest-root">2. 🔷 ROOT：是否需要進行 Hydrotest？</a></li>
+<li><a href="#hydrotest-execution">3. 🔶 Hydrotest 執行條件</a>
 <ul>
-<li><a href="#orgc925755">設計條件不明確</a></li>
-<li><a href="#orgb5025e7">厚度設計不確定</a></li>
-<li><a href="#orge2f2b70">開孔補強是否足夠</a></li>
-<li><a href="#orga667763">焊接效率如何選擇</a></li>
-<li><a href="#org8e1b24b">檢驗與試驗要求</a></li>
-<li><a href="#orgcfd4823">認證與文件問題</a></li>
+<li><a href="#hydrotest-pressure">3.1. 試驗壓力（Test Pressure）</a></li>
+<li><a href="#hydrotest-medium">3.2. 試驗介質</a></li>
+<li><a href="#hydrotest-check">3.3. 檢驗內容</a></li>
+<li><a href="#hydrotest-ai">3.4. 見證角色</a></li>
 </ul>
 </li>
-<li><a href="#org738cf77">為什麼需要工程判斷？</a></li>
-<li><a href="#org2c58140">技術支援</a></li>
+<li><a href="#hydrotest-alternative">4. 🔶 替代方案（Pneumatic Test）</a>
+<ul>
+<li><a href="#pneumatic-condition">4.1. 使用條件</a></li>
+<li><a href="#pneumatic-risk">4.2. ⚠️ 風險（極高）</a></li>
+</ul>
+</li>
+<li><a href="#hydrotest-critical">5. 🔥 關鍵工程判斷（Critical Thinking）</a>
+<ul>
+<li><a href="#hydrotest-design">5.1. Hydrotest 是否驗證設計正確？</a></li>
+<li><a href="#hydrotest-safety">5.2. Hydrotest 是否代表設備安全？</a></li>
+<li><a href="#hydrotest-meaning">5.3. Hydrotest 真正驗證的是什麼？</a></li>
+</ul>
+</li>
+<li><a href="#hydrotest-misconception">6. 🔷 常見工程誤解（非常重要）</a></li>
+<li><a href="#hydrotest-links">7. 🔗 與其他節點關聯</a></li>
+<li><a href="#hydrotest-summary">8. 🧭 收斂（首頁可引用）</a></li>
 </ul>
 </div>
 </nav>
+<div id="outline-container-hydrotest-role" class="outline-2">
+<h2 id="hydrotest-role"><span class="section-number-2">1.</span> 🧭 節點定位</h2>
+<div class="outline-text-2" id="text-hydrotest-role">
 <p>
-由「各申機械設計工作室」維護，專注於 ASME Sec.VIII Div.1 等國際規範實務應用。
-</p>
-<div id="outline-container-org98251b0" class="outline-2">
-<h2 id="org98251b0">你現在遇到哪個問題？</h2>
-<div class="outline-text-2" id="text-org98251b0">
-<p>
-在壓力容器設計與認證過程中，多數風險來自於「錯誤的判斷起點」。
+Hydrotest 不是用來證明設備「安全」，
+而是驗證設備「在特定條件下未發生破壞」。
 </p>
 
 <p>
-請選擇你目前的工程問題：
+→ 屬於：Verification（驗證節點）
 </p>
+
+<hr>
 </div>
-<div id="outline-container-orgc925755" class="outline-3">
-<h3 id="orgc925755">設計條件不明確</h3>
-<div class="outline-text-3" id="text-orgc925755">
+</div>
+<div id="outline-container-hydrotest-root" class="outline-2">
+<h2 id="hydrotest-root"><span class="section-number-2">2.</span> 🔷 ROOT：是否需要進行 Hydrotest？</h2>
+<div class="outline-text-2" id="text-hydrotest-root">
 <p>
-<a href="design-conditions/index.html">→ 設計條件判斷</a>
-</p>
-</div>
-</div>
-<div id="outline-container-orgb5025e7" class="outline-3">
-<h3 id="orgb5025e7">厚度設計不確定</h3>
-<div class="outline-text-3" id="text-orgb5025e7">
-<p>
-<a href="thickness/index.html#ID-70579dd4-30ca-41f9-a7e1-4545f62c582d">→ 厚度設計判斷（UG-27 / UG-28）</a>
-</p>
-</div>
-</div>
-<div id="outline-container-orge2f2b70" class="outline-3">
-<h3 id="orge2f2b70">開孔補強是否足夠</h3>
-<div class="outline-text-3" id="text-orge2f2b70">
-<p>
-<a href="openings/index.html">→ 開孔補強判斷（UG-36 ~ UG-43）</a>
-</p>
-</div>
-</div>
-<div id="outline-container-orga667763" class="outline-3">
-<h3 id="orga667763">焊接效率如何選擇</h3>
-<div class="outline-text-3" id="text-orga667763">
-<p>
-<a href="welding/index.html#ID-60b203cd-6281-47b5-86cf-b3fe1c95888b">→ 接頭效率與焊接設計（UW-12）</a>
-</p>
-</div>
-</div>
-<div id="outline-container-org8e1b24b" class="outline-3">
-<h3 id="org8e1b24b">檢驗與試驗要求</h3>
-<div class="outline-text-3" id="text-org8e1b24b">
-<p>
-<a href="inspection/index.html#ID-bd3daf30-88eb-465c-bbbe-1ebcb7352cff">→ 檢驗與壓力試驗（UG-99）</a>
-</p>
-</div>
-</div>
-<div id="outline-container-orgcfd4823" class="outline-3">
-<h3 id="orgcfd4823">認證與文件問題</h3>
-<div class="outline-text-3" id="text-orgcfd4823">
-<p>
-<a href="certification/index.html#ID-4ccb3507-418d-4423-9864-825dcae58944">→ MDR / ASME 認證流程</a>
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-org738cf77" class="outline-2">
-<h2 id="org738cf77">為什麼需要工程判斷？</h2>
-<div class="outline-text-2" id="text-org738cf77">
-<p>
-ASME Code 提供的是「規範」，不是「設計答案」。
+→ ASME Section VIII Div.1 預設要求（UG-99）
 </p>
 
 <p>
-錯誤的套用方式，可能導致：
+<a href="#hydrotest-execution">→ 執行 Hydrotest</a>
+<a href="#hydrotest-alternative">→ 替代方案（例：氣壓試驗）</a>
+</p>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-hydrotest-execution" class="outline-2">
+<h2 id="hydrotest-execution"><span class="section-number-2">3.</span> 🔶 Hydrotest 執行條件</h2>
+<div class="outline-text-2" id="text-hydrotest-execution">
+<p>
+→ UG-99
+</p>
+
+<hr>
+</div>
+<div id="outline-container-hydrotest-pressure" class="outline-3">
+<h3 id="hydrotest-pressure"><span class="section-number-3">3.1.</span> 試驗壓力（Test Pressure）</h3>
+<div class="outline-text-3" id="text-hydrotest-pressure">
+<ul class="org-ul">
+<li>約 1.3 × MAWP（依 UG-99 調整）</li>
+<li>需考慮材料溫度修正</li>
+</ul>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-hydrotest-medium" class="outline-3">
+<h3 id="hydrotest-medium"><span class="section-number-3">3.2.</span> 試驗介質</h3>
+<div class="outline-text-3" id="text-hydrotest-medium">
+<ul class="org-ul">
+<li>水（不可壓縮）</li>
+<li>降低儲能風險</li>
+</ul>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-hydrotest-check" class="outline-3">
+<h3 id="hydrotest-check"><span class="section-number-3">3.3.</span> 檢驗內容</h3>
+<div class="outline-text-3" id="text-hydrotest-check">
+<ul class="org-ul">
+<li>是否滲漏（leakage）</li>
+<li>是否變形（distortion）</li>
+<li>是否破壞（failure）</li>
+</ul>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-hydrotest-ai" class="outline-3">
+<h3 id="hydrotest-ai"><span class="section-number-3">3.4.</span> 見證角色</h3>
+<div class="outline-text-3" id="text-hydrotest-ai">
+<p>
+→ AI（Authorized Inspector）
 </p>
 
 <ul class="org-ul">
-<li>設計不符合規範</li>
-<li>重工與認證失敗</li>
-<li>法規責任風險</li>
+<li>見證試驗</li>
+<li>確認程序符合 Code</li>
 </ul>
+
+<hr>
 </div>
 </div>
-<div id="outline-container-org2c58140" class="outline-2">
-<h2 id="org2c58140">技術支援</h2>
-<div class="outline-text-2" id="text-org2c58140">
+</div>
+<div id="outline-container-hydrotest-alternative" class="outline-2">
+<h2 id="hydrotest-alternative"><span class="section-number-2">4.</span> 🔶 替代方案（Pneumatic Test）</h2>
+<div class="outline-text-2" id="text-hydrotest-alternative">
 <p>
-若您需要：
+→ UG-100
+</p>
+
+<hr>
+</div>
+<div id="outline-container-pneumatic-condition" class="outline-3">
+<h3 id="pneumatic-condition"><span class="section-number-3">4.1.</span> 使用條件</h3>
+<div class="outline-text-3" id="text-pneumatic-condition">
+<ul class="org-ul">
+<li>無法注水（重量 / 污染 / 結構限制）</li>
+<li>需額外風險控制</li>
+</ul>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-pneumatic-risk" class="outline-3">
+<h3 id="pneumatic-risk"><span class="section-number-3">4.2.</span> ⚠️ 風險（極高）</h3>
+<div class="outline-text-3" id="text-pneumatic-risk">
+<ul class="org-ul">
+<li>壓縮氣體儲能高</li>
+<li>破裂 → 爆炸效應</li>
+</ul>
+
+<hr>
+</div>
+</div>
+</div>
+<div id="outline-container-hydrotest-critical" class="outline-2">
+<h2 id="hydrotest-critical"><span class="section-number-2">5.</span> 🔥 關鍵工程判斷（Critical Thinking）</h2>
+<div class="outline-text-2" id="text-hydrotest-critical">
+<hr>
+</div>
+<div id="outline-container-hydrotest-design" class="outline-3">
+<h3 id="hydrotest-design"><span class="section-number-3">5.1.</span> Hydrotest 是否驗證設計正確？</h3>
+<div class="outline-text-3" id="text-hydrotest-design">
+<p>
+答案：否
+</p>
+
+<p>
+→ 它只驗證：
+「設備在試驗壓力下沒有失效」
+</p>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-hydrotest-safety" class="outline-3">
+<h3 id="hydrotest-safety"><span class="section-number-3">5.2.</span> Hydrotest 是否代表設備安全？</h3>
+<div class="outline-text-3" id="text-hydrotest-safety">
+<p>
+答案：否
+</p>
+
+<p>
+→ 無法涵蓋：
 </p>
 
 <ul class="org-ul">
-<li>設計審查</li>
-<li>Code 適用性判斷</li>
-<li>認證風險評估</li>
+<li>疲勞（fatigue）</li>
+<li>局部應力集中</li>
+<li>長期腐蝕</li>
+<li>熱應力</li>
 </ul>
 
-<div style="max-width: 600px; margin: 2em auto; text-align: center; position: relative; left: 20px;">
+<hr>
+</div>
+</div>
+<div id="outline-container-hydrotest-meaning" class="outline-3">
+<h3 id="hydrotest-meaning"><span class="section-number-3">5.3.</span> Hydrotest 真正驗證的是什麼？</h3>
+<div class="outline-text-3" id="text-hydrotest-meaning">
+<ul class="org-ul">
+<li>製造品質（焊接 / 組裝）</li>
+<li>結構完整性（短期）</li>
+</ul>
+
+<hr>
+</div>
+</div>
+</div>
+<div id="outline-container-hydrotest-misconception" class="outline-2">
+<h2 id="hydrotest-misconception"><span class="section-number-2">6.</span> 🔷 常見工程誤解（非常重要）</h2>
+<div class="outline-text-2" id="text-hydrotest-misconception">
+<hr>
+
 <p>
-<b><b>確保您的壓力容器設計安全可靠，符合所有法規要求。</b></b><br>
-<b><b>立即聯絡各申機械設計工作室，獲取專業諮詢與支援，讓您的工程無懈可擊。</b></b> <br>
-<a href="https://sites.google.com/view/each-application/contact-us">聯繫我們</a> | <a href="https://sites.google.com/view/each-application/scope-of-technical-support">探索我們的服務</a>
+❌ Hydrotest 過 = 設計沒問題  
+❌ Hydrotest 過 = 可以安全運行  
+❌ Hydrotest 是設計驗證  
 </p>
+
+<hr>
+
+<p>
+✔ 正確理解：
+</p>
+
+<p>
+Hydrotest 是「最低限度的製造驗證」
+</p>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-hydrotest-links" class="outline-2">
+<h2 id="hydrotest-links"><span class="section-number-2">7.</span> 🔗 與其他節點關聯</h2>
+<div class="outline-text-2" id="text-hydrotest-links">
+<ul class="org-ul">
+<li><a href="../welding/index.html#ID-60b203cd-6281-47b5-86cf-b3fe1c95888b">厚度設計</a></li>
+<li><a href="../welding/joint-efficiency.html#ID-bd4f54a7-671b-4572-aa9e-2c1472bd13b3">焊接效率</a></li>
+</ul>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-hydrotest-summary" class="outline-2">
+<h2 id="hydrotest-summary"><span class="section-number-2">8.</span> 🧭 收斂（首頁可引用）</h2>
+<div class="outline-text-2" id="text-hydrotest-summary">
+<p>
+Hydrotest 不是安全的證明，
+而是「尚未失敗的證明」。
+</p>
+
+<div class="ea-footer" style="clear: both; margin-top: 40px; padding: 20px 10px; border-top: 2px solid #FBC02D;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px;">
+    <div style="flex: 1; min-width: 250px;">
+      <a href="index.html" style="text-decoration: none; font-weight: bold; color: #D32F2F; border: 1px solid #D32F2F; padding: 5px 10px; border-radius: 4px;">←  壓力試驗（UG-99）工程判斷</a>
+    </div>
+    <div style="flex: 1; text-align: right; min-width: 250px; font-size: 0.9em; color: #666;">
+      <strong>各申機械設計工作室 <br>(Each Application Mechanical Design Studio)</strong><br>
+      專業壓力容器設計 · 風險評估 · 法規諮詢
+    </div>
+  </div>
 </div>
 </div>
 </div>
