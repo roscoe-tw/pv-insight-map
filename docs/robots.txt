@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /google*.html
 
 Sitemap: https://roscoe-tw.github.io/pv-insight-map/sitemap.xml
