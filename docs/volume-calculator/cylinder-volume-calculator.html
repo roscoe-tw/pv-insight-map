@@ -382,7 +382,7 @@ function calc() {
   
   // 2. 演算法分離：若未來要加入 ASME 係數表，建議在此處分開處理
   if (head === "ellip") {
-    Vhead = 0.84 * Math.PI * r * r * r; // 保持您目前的係數設定
+    Vhead = 0.3333 * Math.PI * r * r * r; // 保持您目前的係數設定
   }
   
   let Vtotal = Vcyl + 2 * Vhead;
