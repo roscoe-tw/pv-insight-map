@@ -3,7 +3,7 @@
   <url>
     <loc>https://roscoe-tw.github.io/pv-insight-map/certification/</loc>
     <lastmod>2026-04-09</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
@@ -20,8 +20,8 @@
   </url>
   <url>
     <loc>https://roscoe-tw.github.io/pv-insight-map/governance/</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
@@ -39,13 +39,13 @@
   <url>
     <loc>https://roscoe-tw.github.io/pv-insight-map/material/</loc>
     <lastmod>2026-04-07</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://roscoe-tw.github.io/pv-insight-map/material/material-procurement-pipe.html</loc>
     <lastmod>2026-04-07</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
@@ -56,7 +56,7 @@
   </url>
   <url>
     <loc>https://roscoe-tw.github.io/pv-insight-map/thickness/components/head-torispherical.html</loc>
-    <lastmod>2026-04-07</lastmod>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -69,6 +69,12 @@
   <url>
     <loc>https://roscoe-tw.github.io/pv-insight-map/thickness/internal-pressure.html</loc>
     <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://roscoe-tw.github.io/pv-insight-map/volume-calculator/cylinder-volume-calculator.html</loc>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
@@ -93,13 +99,13 @@
   <url>
     <loc>https://roscoe-tw.github.io/pv-insight-map/</loc>
     <lastmod>2026-04-08</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://roscoe-tw.github.io/pv-insight-map/sitemap.html</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
 </urlset>

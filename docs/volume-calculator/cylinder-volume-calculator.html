@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-tw">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>PV Insight Map — 壓力容器工程判斷導航</title>
-<meta name="description" content="PV Insight Map 協助工程師導航 ASME Sec.VIII Div.1 壓力容器設計的關鍵工程判斷，解決設計條件、厚度、開孔補強、焊接效率、檢驗與認證等常見問題，確保設計符合規範並降低風險。" />
-<meta name="keywords" content="ASME, Pressure Vessel, Engineering Judgment, 壓力容器設計." />
+<title>桶槽內容積試算</title>
+<meta name="description" content="桶槽內容積試算工具，適用於設備設計前期評估，包含工程判斷與後續設計考量。" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
   #content { max-width: 60em; margin: auto; }
@@ -223,238 +222,176 @@
     });
   }
 </script>
-<link rel="canonical" href="https://roscoe-tw.github.io/pv-insight-map/">
 </head>
 <body>
+<div id="preamble" class="status">
+<div class="breadcrumb-container">
+  <a href="https://roscoe-tw.github.io/pv-insight-map/" class="bc-item">返回 PV Insight Map</a> 
+  <!-- <span class="bc-sep">›</span> 
+  <span class="bc-current">設計條件判斷</span>-->
+</div>
+</div>
 <div id="content" class="content">
 <header>
-<h1 class="title">PV Insight Map — 壓力容器工程判斷導航</h1>
-<p class="subtitle" role="doc-subtitle">Engineering Decision Map for Pressure Vessel Design</p>
+<h1 class="title">桶槽內容積試算</h1>
+<p class="subtitle" role="doc-subtitle">Cylinder Volume Calculator</p>
 </header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org888e212">你的設備，目前卡在哪個風險？</a>
-<ul>
-<li><a href="#orgf212836">設備尺寸與容量是否合理</a></li>
-<li><a href="#orgc925755">設計條件不明確</a></li>
-<li><a href="#orgb5025e7">厚度設計不確定</a></li>
-<li><a href="#orge2f2b70">開孔補強是否足夠</a></li>
-<li><a href="#orga667763">焊接效率如何選擇</a></li>
-<li><a href="#org8e1b24b">檢驗與試驗要求</a></li>
-<li><a href="#orgcfd4823">認證與文件問題</a></li>
-<li><a href="#org6577f49">合格的材料要如何採購</a></li>
-</ul>
-</li>
-<li><a href="#org738cf77">為什麼需要工程判斷？</a></li>
-<li><a href="#org2c58140">技術支援</a></li>
+<li><a href="#org37fe4bf">工具說明</a></li>
+<li><a href="#org8b9509e">輸入條件</a></li>
+<li><a href="#org4be552b">計算結果</a></li>
+<li><a href="#orgdd86941">工程補充說明</a></li>
+<li><a href="#orgf3ddb3d">進一步條件確認</a></li>
+<li><a href="#org6bc1cc1">進一步評估與設計支援</a></li>
+<li><a href="#org1eb6653">使用說明</a></li>
 </ul>
 </div>
 </nav>
+<div id="outline-container-org37fe4bf" class="outline-2">
+<h2 id="org37fe4bf">工具說明</h2>
+<div class="outline-text-2" id="text-org37fe4bf">
 <p>
-由「各申機械設計工作室」維護，專注於 ASME Sec.VIII Div.1 等國際規範實務應用。
-</p>
-<div id="outline-container-org888e212" class="outline-2">
-<h2 id="org888e212">你的設備，目前卡在哪個風險？</h2>
-<div class="outline-text-2" id="text-org888e212">
-<p>
-在壓力容器設計與認證過程中，多數風險來自於「錯誤的判斷起點」。
+本工具提供圓筒形桶槽之內容積初步估算，常用於設備選型與設計前期工程判斷。
 </p>
 
 <p>
-請選擇你目前面對的狀況：
+在實際應用中，設備尺寸通常需搭配操作條件、內部構件與法規要求進行整體評估。
 </p>
-</div>
-<div id="outline-container-orgf212836" class="outline-3">
-<h3 id="orgf212836">設備尺寸與容量是否合理</h3>
-<div class="outline-text-3" id="text-orgf212836">
-<div style="border-left: 5px solid #e74c3c; padding-left: 15px; margin-bottom: 20px;">
-<ul class="org-ul">
-<li><b>風險</b> ：設備尺寸與製程需求不匹配，可能導致後續設計全面重算。</li>
-<li><a href="volume-calculator/cylinder-volume-calculator.html#ID-de80c5ac-183a-4d35-a7eb-f7bbeb60ecddg">進入：桶槽內容積與容量判斷 →</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orgc925755" class="outline-3">
-<h3 id="orgc925755">設計條件不明確</h3>
-<div class="outline-text-3" id="text-orgc925755">
-<div style="border-left: 5px solid #e74c3c; padding-left: 15px; margin-bottom: 20px;">
-<ul class="org-ul">
-<li><b>風險</b> ：設計基準不完整，可能導致後續計算與認證全部失效。</li>
-<li><a href="design-conditions/index.html">進入：設計條件判斷導航 →</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orgb5025e7" class="outline-3">
-<h3 id="orgb5025e7">厚度設計不確定</h3>
-<div class="outline-text-3" id="text-orgb5025e7">
-<div style="border-left: 5px solid #e74c3c; padding-left: 15px; margin-bottom: 20px;">
-<ul class="org-ul">
-<li><b>風險</b> ： 厚度計算結果不確定，可能不符合 UG-27 / UG-28</li>
-<li><a href="thickness/index.html#ID-70579dd4-30ca-41f9-a7e1-4545f62c582d">進入：厚度設計判斷（UG-27 / UG-28）→</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orge2f2b70" class="outline-3">
-<h3 id="orge2f2b70">開孔補強是否足夠</h3>
-<div class="outline-text-3" id="text-orge2f2b70">
-<div style="border-left: 5px solid #e74c3c; padding-left: 15px; margin-bottom: 20px;">
-<ul class="org-ul">
-<li><b>風險</b> ： 補強不足可能導致局部失效或審查退件</li>
-<li><a href="openings/index.html">進入：開孔補強判斷（UG-36 ~ UG-43）→</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orga667763" class="outline-3">
-<h3 id="orga667763">焊接效率如何選擇</h3>
-<div class="outline-text-3" id="text-orga667763">
-<div style="border-left: 5px solid #e74c3c; padding-left: 15px; margin-bottom: 20px;">
-<ul class="org-ul">
-<li><b>風險</b> ：接頭效率選錯，會直接影響殼體強度與合規性</li>
-<li><a href="welding/index.html#ID-60b203cd-6281-47b5-86cf-b3fe1c95888b">進入：接頭效率與焊接設計（UW-12）→</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org8e1b24b" class="outline-3">
-<h3 id="org8e1b24b">檢驗與試驗要求</h3>
-<div class="outline-text-3" id="text-org8e1b24b">
-<div style="border-left: 5px solid #e74c3c; padding-left: 15px; margin-bottom: 20px;">
-<ul class="org-ul">
-<li><b>風險</b> ：未符合 UG-99，可能無法完成最終驗證</li>
-<li><a href="inspection/index.html#ID-bd3daf30-88eb-465c-bbbe-1ebcb7352cff">進入：檢驗與壓力試驗（UG-99）→</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orgcfd4823" class="outline-3">
-<h3 id="orgcfd4823">認證與文件問題</h3>
-<div class="outline-text-3" id="text-orgcfd4823">
-<div style="border-left: 5px solid #e74c3c; padding-left: 15px; margin-bottom: 20px;">
-<ul class="org-ul">
-<li><b>風險</b> ：文件流程錯誤，將導致 MDR / ASME 無法簽發</li>
-<li><a href="certification/index.html#ID-4ccb3507-418d-4423-9864-825dcae58944">進入：MDR / ASME 認證流程→</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org6577f49" class="outline-3">
-<h3 id="org6577f49">合格的材料要如何採購</h3>
-<div class="outline-text-3" id="text-org6577f49">
-<div style="border-left: 5px solid #e74c3c; padding-left: 15px; margin-bottom: 20px;">
-<ul class="org-ul">
-<li><b>風險</b> ：材料不符合規範，可能導致整批設備報廢</li>
-<li><a href="material/material-procurement-pipe.html#ID-fef2e807-8218-4318-804d-d7e9981934d5">進入：管材要如何採購→</a></li>
-</ul>
-</div>
 
 <hr>
 </div>
 </div>
-</div>
-<div id="outline-container-org738cf77" class="outline-2">
-<h2 id="org738cf77">為什麼需要工程判斷？</h2>
-<div class="outline-text-2" id="text-org738cf77">
-<p>
-ASME Code 提供的是「規範」，不是「設計答案」。
-</p>
+<div id="outline-container-org8b9509e" class="outline-2">
+<h2 id="org8b9509e">輸入條件</h2>
+<div class="outline-text-2" id="text-org8b9509e">
+<label>內徑 D (mm):</label><br>
+<input id="D" type="number"><br>
 
+<label>直筒長度 L (mm):</label><br>
+<input id="L" type="number"><br>
+
+<label>端板類型:</label><br>
+<select id="head">
+<option value="flat">平蓋（Flat）</option>
+<option value="ellip">2:1 橢圓封頭（Elliptical）</option>
+</select><br><br>
+
+<button onclick="calc()">計算內容積</button>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-org4be552b" class="outline-2">
+<h2 id="org4be552b">計算結果</h2>
+<div class="outline-text-2" id="text-org4be552b">
+<div id="result" style="font-weight:bold;font-size:1.2em;">尚未計算</div>
+
+<blockquote>
 <p>
-錯誤的套用方式，可能導致：
+此結果為幾何體積估算，未包含內部構件（如盤管、支撐件）或實際操作液位條件。
+</p>
+</blockquote>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-orgdd86941" class="outline-2">
+<h2 id="orgdd86941">工程補充說明</h2>
+<div class="outline-text-2" id="text-orgdd86941">
+<ul class="org-ul">
+<li>實際有效容積通常需扣除內部設備占用空間</li>
+<li>操作液位（Working Volume）通常低於幾何總容積</li>
+<li>若涉及氣液分離或反應系統，設備尺寸可能受滯留時間影響</li>
+</ul>
+
+<hr>
+</div>
+</div>
+<div id="outline-container-orgf3ddb3d" class="outline-2">
+<h2 id="orgf3ddb3d">進一步條件確認</h2>
+<div class="outline-text-2" id="text-orgf3ddb3d">
+<p>
+在多數工程案例中，內容積僅為設備設計的一部分，仍可能需要確認以下條件：
 </p>
 
 <ul class="org-ul">
-<li>設計不符合規範</li>
-<li>重工與認證失敗</li>
-<li>法規責任風險</li>
+<li>當涉及製程需求時，是否需進一步評估滯留時間（Residence Time）？  
+→ <a href="../design-conditions/index.html#ID-83c3a3bd-1b61-49e9-98fa-739344fe4131">查看設計判斷</a></li>
+
+<li>當設備承受壓力時，是否需同步考慮強度與厚度設計？  
+→ <a href="../thickness/index.html#ID-70579dd4-30ca-41f9-a7e1-4545f62c582d">查看厚度設計判斷</a></li>
 </ul>
 
-<table class="table table-bordered" style="margin-left: auto; margin-right: auto; width: 90%;">
-<caption class="t-above"><span class="table-number">Table 1:</span> <b>計算機軟體</b> 與 <b>專業顧問</b> 的差異</caption>
-
-<colgroup>
-<col  class="org-left">
-
-<col  class="org-left">
-
-<col  class="org-left">
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">範疇</td>
-<td class="org-left">計算軟體(Software)</td>
-<td class="org-left">工程判斷 (Consulting)</td>
-</tr>
-
-<tr>
-<td class="org-left">輸入值</td>
-<td class="org-left">假設使用者輸入皆正確</td>
-<td class="org-left">審查輸入值的物理合理性與法規合規性</td>
-</tr>
-
-<tr>
-<td class="org-left">邊界條件</td>
-<td class="org-left">固定模式</td>
-<td class="org-left">針對特殊製程（如循環載荷、高溫）調整</td>
-</tr>
-
-<tr>
-<td class="org-left">認證合規</td>
-<td class="org-left">僅輸出數值</td>
-<td class="org-left">確保文件鏈 (Traceability) 符合 MDR 要求</td>
-</tr>
-</tbody>
-</table>
-
-
+<hr>
+</div>
+</div>
+<div id="outline-container-org6bc1cc1" class="outline-2">
+<h2 id="org6bc1cc1">進一步評估與設計支援</h2>
+<div class="outline-text-2" id="text-org6bc1cc1">
 <p>
-概念說明：
+若您的設備已進入規劃或設計階段，建議在確定內容積後，同步確認操作條件、結構設計與法規要求，以避免後續修改所增加的成本與時程影響。
 </p>
-<ul class="org-ul">
-<li><a href="https://sites.google.com/view/each-application/pressure-equipment-engineering-judgment">《壓力設備工程判斷》</a></li>
-<li><a href="https://sites.google.com/view/each-application/scope-of-technical-support/pressure-vessel-engineering-judgment">《壓力設備工程判斷方法論》</a><br>
-Pressure Vessel Engineering Judgment Methodology</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org2c58140" class="outline-2">
-<h2 id="org2c58140">技術支援</h2>
-<div class="outline-text-2" id="text-org2c58140">
+
 <p>
-如果您出現以下任一情況：
+本工作室可協助：
 </p>
 
 <ul class="org-ul">
-<li>計算書已完成，但仍無法通過審查</li>
-<li>設計已定，但對 Code 適用性沒有把握</li>
-<li>客戶 / AI 要求與 Code 不一致</li>
-<li>專案存在責任風險，但無法界定</li>
+<li>設備容量與製程條件匹配（Sizing Review）</li>
+<li>壓力容器強度與厚度設計（ASME Sec.VIII）</li>
 </ul>
 
 <p>
-這代表問題不在「計算」，而在「工程判斷」。
+→ <a href="https://sites.google.com/view/each-application/contact-us">提交需求（初步評估）</a>
 </p>
 
-<p>
-我們提供：
-</p>
-
-<ul class="org-ul">
-<li>設計審查</li>
-<li>Code 適用性判斷</li>
-<li>認證風險評估</li>
-</ul>
-
-<div style="max-width: 600px; margin: 2em auto; text-align: center; position: relative; left: 10px;">
-<p>
-<b><b>避免重工與認證失敗，先確認你的工程判斷是否正確。</b></b><br>
-<a href="https://sites.google.com/view/each-application/contact-us">聯繫工程顧問</a>
-</p>
+<hr>
 </div>
+</div>
+<div id="outline-container-org1eb6653" class="outline-2">
+<h2 id="org1eb6653">使用說明</h2>
+<div class="outline-text-2" id="text-org1eb6653">
+<blockquote>
+<p>
+本工具提供之結果僅供初步工程評估使用，不作為製造或設計依據。  
+最終設計需依實際條件由專業工程人員進行確認。
+</p>
+</blockquote>
+
+<hr>
+
+<script>
+function calc() {
+  let D = parseFloat(document.getElementById("D").value);
+  let L = parseFloat(document.getElementById("L").value);
+  let head = document.getElementById("head").value;
+
+  // 1. 基礎防呆：檢查數值是否為空或負數
+  if (isNaN(D) || isNaN(L) || D <= 0 || L <= 0) {
+    document.getElementById("result").innerText = "錯誤：請輸入大於 0 的有效數值";
+    document.getElementById("result").style.color = "red";
+    return;
+  }
+
+  let r = D / 2;
+  let Vcyl = Math.PI * r * r * L;
+  let Vhead = 0;
+  
+  // 2. 演算法分離：若未來要加入 ASME 係數表，建議在此處分開處理
+  if (head === "ellip") {
+    Vhead = 0.84 * Math.PI * r * r * r; // 保持您目前的係數設定
+  }
+  
+  let Vtotal = Vcyl + 2 * Vhead;
+  let V_m3 = Vtotal / 1e9; // 假設輸入為 mm
+
+  // 3. 輸出回饋
+  document.getElementById("result").style.color = "black";
+  document.getElementById("result").innerText = "計算結果: " + V_m3.toFixed(3) + " m³";
+}
+</script>
 </div>
 </div>
 </div>
