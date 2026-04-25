@@ -234,7 +234,7 @@
 <div id="content" class="content">
 <header>
 <h1 class="title">桶槽內容積試算</h1>
-<p class="subtitle" role="doc-subtitle">Cylinder Volume Calculator</p>
+<p class="subtitle" role="doc-subtitle">Preliminary Vessel Volume Check (Cylinder Section)</p>
 </header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
@@ -253,6 +253,11 @@
 <div id="outline-container-org37fe4bf" class="outline-2">
 <h2 id="org37fe4bf">工具說明</h2>
 <div class="outline-text-2" id="text-org37fe4bf">
+<p>
+This tool provides a preliminary geometric volume estimation for cylindrical sections.
+It is intended for early-stage engineering sizing only.
+</p>
+
 <p>
 本工具提供圓筒形桶槽之內容積初步估算，常用於設備選型與設計前期工程判斷。
 </p>
@@ -279,7 +284,7 @@
 <option value="ellip">2:1 橢圓封頭（Elliptical）</option>
 </select><br><br>
 
-<button onclick="calc()">計算內容積</button>
+<button onclick="calc()">計算內容積 (Calculated Internal Volume) </button>
 
 <hr>
 </div>
@@ -289,11 +294,23 @@
 <div class="outline-text-2" id="text-org4be552b">
 <div id="result" style="font-weight:bold;font-size:1.2em;">尚未計算</div>
 
-<blockquote>
+
 <p>
 此結果為幾何體積估算，未包含內部構件（如盤管、支撐件）或實際操作液位條件。
 </p>
-</blockquote>
+
+<p>
+⚠ Engineering Notes:
+</p>
+
+<ul class="org-ul">
+<li>This calculation assumes a perfect cylinder geometry</li>
+<li>Head volume is not included</li>
+<li>Shell thickness is not deducted</li>
+<li>Nozzle intrusions are not considered</li>
+<li>Not applicable for code compliance verification</li>
+</ul>
+
 
 <hr>
 </div>
@@ -321,7 +338,7 @@
 <li>當涉及製程需求時，是否需進一步評估滯留時間（Residence Time）？  
 → <a href="../design-conditions/index.html#ID-83c3a3bd-1b61-49e9-98fa-739344fe4131">查看設計判斷</a></li>
 
-<li>當設備承受壓力時，是否需同步考慮強度與厚度設計？  
+<li>當設備承受壓力時，是否需同步考慮強度與厚度設計？    
 → <a href="../thickness/index.html#ID-70579dd4-30ca-41f9-a7e1-4545f62c582d">查看厚度設計判斷</a></li>
 </ul>
 
@@ -344,6 +361,17 @@
 <li>壓力容器強度與厚度設計（ASME Sec.VIII）</li>
 </ul>
 
+<blockquote>
+<p>
+This tool is intended for preliminary estimation.
+</p>
+
+<p>
+For complete pressure vessel design in accordance with ASME Sec.VIII Div.1,
+engineering support and design verification can be provided upon request.
+</p>
+</blockquote>
+
 <p>
 → <a href="https://sites.google.com/view/each-application/contact-us">提交需求（初步評估）</a>
 </p>
@@ -358,6 +386,11 @@
 <p>
 本工具提供之結果僅供初步工程評估使用，不作為製造或設計依據。  
 最終設計需依實際條件由專業工程人員進行確認。
+</p>
+
+<p>
+The results provided by this tool are for preliminary engineering evaluation only and shall not be used for manufacturing or final design purposes.
+Final design shall be verified by a qualified professional engineer based on actual operating conditions.
 </p>
 </blockquote>
 
