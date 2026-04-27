@@ -299,26 +299,21 @@ label {
     <option value="ellip">2:1 橢圓封頭（Elliptical）</option>
   </select>
 </div>
-
-<div>
-  <button onclick="calc()">計算內容積 (Calculated Internal Volume) </button>
-</div>
 </div>
 </div>
 <div id="outline-container-org4be552b" class="outline-2">
 <h2 id="org4be552b">計算結果</h2>
 <div class="outline-text-2" id="text-org4be552b">
-<div id="result" style="font-weight:bold;font-size:1.2em;">尚未計算</div>
-
-
-<p>
-此結果為幾何體積估算，未包含內部構件（如盤管、支撐件）或實際操作液位條件。
-</p>
+<div>
+  <button onclick="calc()">計算內容積 (Calculated Internal Volume) </button>
+</div>
+<div id="result" style="font-weight:bold;font-size:1.2em;">尚未計算</div><br/>
 
 <p>
 ⚠ Engineering Notes:
 </p>
 <ul class="org-ul">
+<li>此結果為幾何體積估算，未包含內部構件（如盤管、支撐件）或實際操作液位條件。</li>
 <li>This calculation assumes a perfect cylinder geometry</li>
 <li>Shell thickness is not deducted</li>
 <li>Nozzle intrusions are not considered</li>
