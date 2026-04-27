@@ -293,16 +293,16 @@ label {
 </div>
 
 <div class="input-group">
-  <label>端板類型:</label><br>
+  <label>端板類型:</label>
   <select id="head">
     <option value="flat">平蓋（Flat）</option>
     <option value="ellip">2:1 橢圓封頭（Elliptical）</option>
   </select>
 </div>
 
-<button onclick="calc()">計算內容積 (Calculated Internal Volume) </button>
-
-<hr>
+<div>
+  <button onclick="calc()">計算內容積 (Calculated Internal Volume) </button>
+</div>
 </div>
 </div>
 <div id="outline-container-org4be552b" class="outline-2">
@@ -439,6 +439,26 @@ function calc() {
   document.getElementById("result").style.color = "black";
   document.getElementById("result").innerText = "計算結果: " + V_m3.toFixed(3) + " m³";
 }
+
+// 定義清空函數
+function clearResult() {
+    document.getElementById("result").innerText = ''; 
+}
+
+//初始化事件監聽器 (確保 HTML 載入後執行)
+document.addEventListener("DOMContentLoaded", function() {
+  const inputs = ['D', 'L'];
+  const select = document.getElementById('head');
+  
+  // 為輸入框綁定事件
+  inputs.forEach(id => {
+    document.getElementById(id).addEventListener('input', clearResult);
+  });
+  
+  // 為下拉選單綁定事件
+  select.addEventListener('change', clearResult);
+});
+
 </script>
 </div>
 </div>
