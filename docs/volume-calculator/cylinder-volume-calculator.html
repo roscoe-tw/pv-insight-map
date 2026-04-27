@@ -272,17 +272,33 @@ It is intended for early-stage engineering sizing only.
 <div id="outline-container-org8b9509e" class="outline-2">
 <h2 id="org8b9509e">輸入條件</h2>
 <div class="outline-text-2" id="text-org8b9509e">
-<label>內徑 D (mm):</label><br>
-<input id="D" type="number"><br>
+<style>
+.input-group {
+  margin-bottom: 15px; /* 控制每一組之間的間距 */
+}
+label {
+  display: block; /* 讓 label 佔滿一行，維持標題在上的效果 */
+  margin-bottom: 5px;
+}
+</style>
 
-<label>直筒長度 L (mm):</label><br>
-<input id="L" type="number"><br>
+<div class="input-group">
+  <label>內徑 D (mm):</label>
+  <input id="D" type="number">
+</div>
 
-<label>端板類型:</label><br>
-<select id="head">
-<option value="flat">平蓋（Flat）</option>
-<option value="ellip">2:1 橢圓封頭（Elliptical）</option>
-</select><br><br>
+<div class="input-group">
+  <label>直筒長度 L (mm):</label>
+  <input id="L" type="number">
+</div>
+
+<div class="input-group">
+  <label>端板類型:</label><br>
+  <select id="head">
+    <option value="flat">平蓋（Flat）</option>
+    <option value="ellip">2:1 橢圓封頭（Elliptical）</option>
+  </select>
+</div>
 
 <button onclick="calc()">計算內容積 (Calculated Internal Volume) </button>
 
@@ -302,10 +318,8 @@ It is intended for early-stage engineering sizing only.
 <p>
 ⚠ Engineering Notes:
 </p>
-
 <ul class="org-ul">
 <li>This calculation assumes a perfect cylinder geometry</li>
-<li>Head volume is not included</li>
 <li>Shell thickness is not deducted</li>
 <li>Nozzle intrusions are not considered</li>
 <li>Not applicable for code compliance verification</li>
